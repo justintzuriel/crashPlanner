@@ -4,6 +4,9 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import "bootstrap/dist/css/bootstrap.css";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+// import Login from "./Components/Login/login";
+// import GetNusmods from "./Components/fetchData";
 
 ReactDOM.render(
   <React.StrictMode>
