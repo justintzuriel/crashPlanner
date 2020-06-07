@@ -8,7 +8,6 @@ import {
 } from "react-grid-dnd";
 import "./Components.css";
 import Cell from "./Cell";
-// import getNusmods from "./fetchData";
 
 function Table() {
   const [items, setItems] = React.useState({
@@ -45,8 +44,6 @@ function Table() {
       { id: 24, name: "katie" },
     ],
   });
-
-  const nusmods = <getNusmods />;
 
   function onChange(sourceId, sourceIndex, targetIndex, targetId) {
     if (targetId) {

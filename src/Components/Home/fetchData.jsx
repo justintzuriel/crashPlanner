@@ -1,53 +1,32 @@
-// import React, { PureComponent } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import FilterModules from "./FilterModules";
+import styled from "styled-components";
+// import FilterCompSec from "./../SamplePlan/ComputerSecurity";
 
-// class GetNusmods extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       error: null,
-//       isLoaded: false,
-//       items: [],
-//     };
-//   }
+const Wrapper = styled.div`
+  // overflow: hidden;
+  width: 150px;
+`;
 
-//   componentDidMount() {
-//     fetch("https://api.nusmods.com/v2/2019-2020/moduleInfo.json")
-//       .then((res) => res.json())
-//       .then(
-//         (result) => {
-//           this.setState({
-//             isLoaded: true,
-//             items: result.items,
-//           });
-//         },
-//         // Note: it's important to handle errors here
-//         // instead of a catch() block so that we don't swallow
-//         // exceptions from actual bugs in components.
-//         (error) => {
-//           this.setState({
-//             isLoaded: true,
-//             error,
-//           });
-//         }
-//       );
-//   }
+function FetchData() {
+  const [module, setModule] = useState([]);
 
-//   render() {
-//     const { error, isLoaded, items } = this.state;
-//     if (error) {
-//       return <div>Error: {error.message}</div>;
-//     } else if (!isLoaded) {
-//       return <div>Loading...</div>;
-//     } else {
-//       return (
-//         <ul>
-//           {items.map((item) => (
-//             <li key={item.moduleCode}>{item.title}</li>
-//           ))}
-//         </ul>
-//       );
-//     }
-//   }
-// }
+  useEffect(() => {
+    axios
+      .get("https://api.nusmods.com/v2/2019-2020/moduleList.json")
+      .then((res) => {
+        console.log(res);
+        setModule(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-// export default GetNusmods;
+  return (
+    <Wrapper>
+      <FilterModules data={module} />
+    </Wrapper>
+  );
+}
+
+export default FetchData;
