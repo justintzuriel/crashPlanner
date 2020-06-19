@@ -1,20 +1,23 @@
-.container {
+.dropzonecontainer {
   display: flex;
   touch-action: none;
-  width: 1200px;
+  width: 960px;
   margin: 1rem auto;
+  position: absolute;
 }
 
 .dropzone {
   flex: 1;
   height: 570px;
+  width: 120px;
   background: #5b5b5b;
   border-radius: 1rem;
+  margin: auto;
+  overflow: scroll;
 }
-
-/* .dropzone.sem1 {
-    margin-right: 10px;
-  } */
+.dropzone::-webkit-scrollbar {
+  display: none;
+}
 
 .grid-item {
   padding: 10px;
@@ -24,8 +27,8 @@
 }
 
 .grid-item-content {
-  width: 120px;
-  height: 60px;
+  width: 100px;
+  height: 50px;
   box-sizing: border-box;
   background: #6aa84fff;
   display: flex;
