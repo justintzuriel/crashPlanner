@@ -1,8 +1,21 @@
 import React, { Component } from "react";
 import Cell from "./Cell";
-import bank from "../SamplePlan/ModuleBank";
+import bank from "../SamplePlan/ModuleBankFunction";
+import { GridContextProvider, GridDropZone, GridItem } from "react-grid-dnd";
+import styled from "styled-components";
 
-class FilterModules extends Component {
+const ModuleBankWrapper = styled.div`
+  width: auto;
+  border-style: solid;
+  border-color: red;
+  align: center;
+  position: relative;
+  overflow: hidden;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+class ModuleBank extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -65,8 +78,12 @@ class FilterModules extends Component {
 
   render() {
     return (
-      <div>
-        <select value={this.state.selectedField} onChange={this.handleField}>
+      <ModuleBankWrapper>
+        <select
+          className="custom-select"
+          value={this.state.selectedField}
+          onChange={this.handleField}
+        >
           <option value="All">ALL</option>
           <option value="Algo"> Algorithms and Theory</option>
           <option value="AI">Artificial Intelligence</option>
@@ -79,12 +96,25 @@ class FilterModules extends Component {
           <option value="Languages">Programming Languages</option>
           <option velue="SE">Software Engineering</option>
         </select>
-        {this.state.modules.map((item) => (
-          <Cell key={item.moduleCode} moduleCode={item.moduleCode} />
-        ))}
-      </div>
+        <GridContextProvider>
+          <GridDropZone
+            className="dropzone"
+            id="bank"
+            boxesPerRow={1}
+            rowHeight={70}
+          >
+            {this.state.modules.map((item) => (
+              <GridItem key={item.moduleCode}>
+                <div className="grid-item">
+                  <div className="grid-item-content">{item.moduleCode}</div>
+                </div>
+              </GridItem>
+            ))}
+          </GridDropZone>
+        </GridContextProvider>
+      </ModuleBankWrapper>
     );
   }
 }
 
-export default FilterModules;
+export default ModuleBank;

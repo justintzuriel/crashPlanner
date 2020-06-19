@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FilterModules from "./FilterModules";
+import ModuleBank from "./ModuleBank";
 import styled from "styled-components";
-// import FilterCompSec from "./../SamplePlan/ComputerSecurity";
+import Table from "./Table";
 
 const Wrapper = styled.div`
-  // overflow: hidden;
-  width: 150px;
+  width: auto;
+  display: flex;
 `;
 
-function FetchData() {
+function Container() {
   const [module, setModule] = useState([]);
 
   useEffect(() => {
@@ -24,9 +24,10 @@ function FetchData() {
 
   return (
     <Wrapper>
-      <FilterModules data={module} />
+      <ModuleBank data={module} />
+      <Table data={module} />
     </Wrapper>
   );
 }
 
-export default FetchData;
+export default Container;

@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import Fire from "../../firebase";
 import Table from "./Table";
 import Navbar from "./Navbar";
-import FetchData from "./FetchData";
+import Container from "./Container";
+
 class Home extends Component {
   render() {
     return (
       <div>
         <Navbar />
-        <FetchData />
-        <Table />
+        <Container />
       </div>
     );
   }

@@ -1,8 +1,8 @@
-import React, { Component, useCallback, useContext } from "react";
+import React, { useCallback } from "react";
 import "./login.css";
 import Fire from "../../firebase";
-import { Redirect, withRouter } from "react-router";
-import { AuthContext } from "../../auth";
+import { withRouter } from "react-router";
+// import { AuthContext } from "../../auth";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
