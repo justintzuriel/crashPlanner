@@ -1,10 +1,18 @@
 import React from "react";
 import logo from "./logo.svg";
+import { withRouter } from "react-router-dom";
 
-function Navbar() {
+function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">
+    <nav
+      style={{ "z-index": "2" }}
+      className="navbar navbar-expand-lg navbar-light bg-light"
+    >
+      <a
+        className="navbar-brand"
+        href="#"
+        onClick={() => props.history.push("/")}
+      >
         crashPlanner
       </a>
       <button
@@ -41,4 +49,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default withRouter(Navbar);

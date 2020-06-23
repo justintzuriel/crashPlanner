@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import "./login.css";
+import "../../Styles/LogSign.css";
 import Fire from "../../firebase";
 import { withRouter } from "react-router";
 // import { AuthContext } from "../../auth";
