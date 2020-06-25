@@ -17,7 +17,7 @@ class Cell extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      moduleCode: this.props.moduleCode,
+      moduleCode: this.props.data.moduleCode,
     };
   }
 

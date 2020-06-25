@@ -7,7 +7,7 @@ import {
   move,
 } from "react-grid-dnd";
 import "./Components.css";
-import SamplePlan from "../SamplePlan/SamplePlan";
+import SamplePlan from "../SamplePlan+ModuleBank/SamplePlan";
 import styled from "styled-components";
 
 const TableWrapper = styled.div`
@@ -21,16 +21,14 @@ function Table(props) {
   const properties = props.data;
 
   const [items, setItems] = React.useState({
-    modules: [
-      props.data.filter(SamplePlan.AlgoS1),
-      props.data.filter(SamplePlan.AlgoS2),
-      props.data.filter(SamplePlan.AlgoS3),
-      props.data.filter(SamplePlan.AlgoS4),
-      props.data.filter(SamplePlan.AlgoS5),
-      props.data.filter(SamplePlan.AlgoS6),
-      props.data.filter(SamplePlan.AlgoS7),
-      props.data.filter(SamplePlan.AlgoS8),
-    ],
+    sem1: props.data.filter(SamplePlan.AlgoS1),
+    sem2: props.data.filter(SamplePlan.AlgoS2),
+    sem3: props.data.filter(SamplePlan.AlgoS3),
+    sem4: props.data.filter(SamplePlan.AlgoS4),
+    sem5: props.data.filter(SamplePlan.AlgoS5),
+    sem6: props.data.filter(SamplePlan.AlgoS6),
+    sem7: props.data.filter(SamplePlan.AlgoS7),
+    sem8: props.data.filter(SamplePlan.AlgoS8),
     focusArea: "Algo",
   });
 
@@ -62,165 +60,145 @@ function Table(props) {
         return setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.AlgoS1),
-            properties.filter(SamplePlan.AlgoS2),
-            properties.filter(SamplePlan.AlgoS3),
-            properties.filter(SamplePlan.AlgoS4),
-            properties.filter(SamplePlan.AlgoS5),
-            properties.filter(SamplePlan.AlgoS6),
-            properties.filter(SamplePlan.AlgoS7),
-            properties.filter(SamplePlan.AlgoS8),
-          ],
+          sem1: properties.filter(SamplePlan.AlgoS1),
+          sem2: properties.filter(SamplePlan.AlgoS2),
+          sem3: properties.filter(SamplePlan.AlgoS3),
+          sem4: properties.filter(SamplePlan.AlgoS4),
+          sem5: properties.filter(SamplePlan.AlgoS5),
+          sem6: properties.filter(SamplePlan.AlgoS6),
+          sem7: properties.filter(SamplePlan.AlgoS7),
+          sem8: properties.filter(SamplePlan.AlgoS8),
         });
         break;
       case "AI":
         return setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.AIS1),
-            properties.filter(SamplePlan.AIS2),
-            properties.filter(SamplePlan.AIS3),
-            properties.filter(SamplePlan.AIS4),
-            properties.filter(SamplePlan.AIS5),
-            properties.filter(SamplePlan.AIS6),
-            properties.filter(SamplePlan.AIS7),
-            properties.filter(SamplePlan.AIS8),
-          ],
+          sem1: properties.filter(SamplePlan.AIS1),
+          sem2: properties.filter(SamplePlan.AIS2),
+          sem3: properties.filter(SamplePlan.AIS3),
+          sem4: properties.filter(SamplePlan.AIS4),
+          sem5: properties.filter(SamplePlan.AIS5),
+          sem6: properties.filter(SamplePlan.AIS6),
+          sem7: properties.filter(SamplePlan.AIS7),
+          sem8: properties.filter(SamplePlan.AIS8),
         });
         break;
       case "Graphics":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.GraphicsS1),
-            properties.filter(SamplePlan.GraphicsS2),
-            properties.filter(SamplePlan.GraphicsS3),
-            properties.filter(SamplePlan.GraphicsS4),
-            properties.filter(SamplePlan.GraphicsS5),
-            properties.filter(SamplePlan.GraphicsS6),
-            properties.filter(SamplePlan.GraphicsS7),
-            properties.filter(SamplePlan.GraphicsS8),
-          ],
+          sem1: properties.filter(SamplePlan.GraphicsS1),
+          sem2: properties.filter(SamplePlan.GraphicsS2),
+          sem3: properties.filter(SamplePlan.GraphicsS3),
+          sem4: properties.filter(SamplePlan.GraphicsS4),
+          sem5: properties.filter(SamplePlan.GraphicsS5),
+          sem6: properties.filter(SamplePlan.GraphicsS6),
+          sem7: properties.filter(SamplePlan.GraphicsS7),
+          sem8: properties.filter(SamplePlan.GraphicsS8),
         });
         break;
       case "Security":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.SecurityS1),
-            properties.filter(SamplePlan.SecurityS2),
-            properties.filter(SamplePlan.SecurityS3),
-            properties.filter(SamplePlan.SecurityS4),
-            properties.filter(SamplePlan.SecurityS5),
-            properties.filter(SamplePlan.SecurityS6),
-            properties.filter(SamplePlan.SecurityS7),
-            properties.filter(SamplePlan.SecurityS8),
-          ],
+          sem1: properties.filter(SamplePlan.SecurityS1),
+          sem2: properties.filter(SamplePlan.SecurityS2),
+          sem3: properties.filter(SamplePlan.SecurityS3),
+          sem4: properties.filter(SamplePlan.SecurityS4),
+          sem5: properties.filter(SamplePlan.SecurityS5),
+          sem6: properties.filter(SamplePlan.SecurityS6),
+          sem7: properties.filter(SamplePlan.SecurityS7),
+          sem8: properties.filter(SamplePlan.SecurityS8),
         });
         break;
       case "DB":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.DBS1),
-            properties.filter(SamplePlan.DBS2),
-            properties.filter(SamplePlan.DBS3),
-            properties.filter(SamplePlan.DBS4),
-            properties.filter(SamplePlan.DBS5),
-            properties.filter(SamplePlan.DBS6),
-            properties.filter(SamplePlan.DBS7),
-            properties.filter(SamplePlan.DBS8),
-          ],
+          sem1: properties.filter(SamplePlan.DBS1),
+          sem2: properties.filter(SamplePlan.DBS2),
+          sem3: properties.filter(SamplePlan.DBS3),
+          sem4: properties.filter(SamplePlan.DBS4),
+          sem5: properties.filter(SamplePlan.DBS5),
+          sem6: properties.filter(SamplePlan.DBS6),
+          sem7: properties.filter(SamplePlan.DBS7),
+          sem8: properties.filter(SamplePlan.DBS8),
         });
         break;
       case "Media":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.MediaS1),
-            properties.filter(SamplePlan.MediaS2),
-            properties.filter(SamplePlan.MediaS3),
-            properties.filter(SamplePlan.MediaS4),
-            properties.filter(SamplePlan.MediaS5),
-            properties.filter(SamplePlan.MediaS6),
-            properties.filter(SamplePlan.MediaS7),
-            properties.filter(SamplePlan.MediaS8),
-          ],
+          sem1: properties.filter(SamplePlan.MediaS1),
+          sem2: properties.filter(SamplePlan.MediaS2),
+          sem3: properties.filter(SamplePlan.MediaS3),
+          sem4: properties.filter(SamplePlan.MediaS4),
+          sem5: properties.filter(SamplePlan.MediaS5),
+          sem6: properties.filter(SamplePlan.MediaS6),
+          sem7: properties.filter(SamplePlan.MediaS7),
+          sem8: properties.filter(SamplePlan.MediaS8),
         });
         break;
       case "Network":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.NetworkS1),
-            properties.filter(SamplePlan.NetworkS2),
-            properties.filter(SamplePlan.NetworkS3),
-            properties.filter(SamplePlan.NetworkS4),
-            properties.filter(SamplePlan.NetworkS5),
-            properties.filter(SamplePlan.NetworkS6),
-            properties.filter(SamplePlan.NetworkS7),
-            properties.filter(SamplePlan.NetworkS8),
-          ],
+          sem1: properties.filter(SamplePlan.NetworkS1),
+          sem2: properties.filter(SamplePlan.NetworkS2),
+          sem3: properties.filter(SamplePlan.NetworkS3),
+          sem4: properties.filter(SamplePlan.NetworkS4),
+          sem5: properties.filter(SamplePlan.NetworkS5),
+          sem6: properties.filter(SamplePlan.NetworkS6),
+          sem7: properties.filter(SamplePlan.NetworkS7),
+          sem8: properties.filter(SamplePlan.NetworkS8),
         });
         break;
       case "Parallel":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.ParallelS1),
-            properties.filter(SamplePlan.ParallelS2),
-            properties.filter(SamplePlan.ParallelS3),
-            properties.filter(SamplePlan.ParallelS4),
-            properties.filter(SamplePlan.ParallelS5),
-            properties.filter(SamplePlan.ParallelS6),
-            properties.filter(SamplePlan.ParallelS7),
-            properties.filter(SamplePlan.ParallelS8),
-          ],
+          sem1: properties.filter(SamplePlan.ParallelS1),
+          sem2: properties.filter(SamplePlan.ParallelS2),
+          sem3: properties.filter(SamplePlan.ParallelS3),
+          sem4: properties.filter(SamplePlan.ParallelS4),
+          sem5: properties.filter(SamplePlan.ParallelS5),
+          sem6: properties.filter(SamplePlan.ParallelS6),
+          sem7: properties.filter(SamplePlan.ParallelS7),
+          sem8: properties.filter(SamplePlan.ParallelS8),
         });
         break;
       case "Languages":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.LanguagesS1),
-            properties.filter(SamplePlan.LanguagesS2),
-            properties.filter(SamplePlan.LanguagesS3),
-            properties.filter(SamplePlan.LanguagesS4),
-            properties.filter(SamplePlan.LanguagesS5),
-            properties.filter(SamplePlan.LanguagesS6),
-            properties.filter(SamplePlan.LanguagesS7),
-            properties.filter(SamplePlan.LanguagesS8),
-          ],
+          sem1: properties.filter(SamplePlan.LanguagesS1),
+          sem2: properties.filter(SamplePlan.LanguagesS2),
+          sem3: properties.filter(SamplePlan.LanguagesS3),
+          sem4: properties.filter(SamplePlan.LanguagesS4),
+          sem5: properties.filter(SamplePlan.LanguagesS5),
+          sem6: properties.filter(SamplePlan.LanguagesS6),
+          sem7: properties.filter(SamplePlan.LanguagesS7),
+          sem8: properties.filter(SamplePlan.LanguagesS8),
         });
         break;
       case "SE":
         setItems({
           ...items,
           focusArea: event.target.value,
-          modules: [
-            properties.filter(SamplePlan.SES1),
-            properties.filter(SamplePlan.SES2),
-            properties.filter(SamplePlan.SES3),
-            properties.filter(SamplePlan.SES4),
-            properties.filter(SamplePlan.SES5),
-            properties.filter(SamplePlan.SES6),
-            properties.filter(SamplePlan.SES7),
-            properties.filter(SamplePlan.SES8),
-          ],
+          sem1: properties.filter(SamplePlan.SES1),
+          sem2: properties.filter(SamplePlan.SES2),
+          sem3: properties.filter(SamplePlan.SES3),
+          sem4: properties.filter(SamplePlan.SES4),
+          sem5: properties.filter(SamplePlan.SES5),
+          sem6: properties.filter(SamplePlan.SES6),
+          sem7: properties.filter(SamplePlan.SES7),
+          sem8: properties.filter(SamplePlan.SES8),
         });
         break;
-      // default:
-      //   setItems({ modules: props.data });
-      //   break;
+      // for(i = 1; i <= 8; i++){
+      //   ["sem"+i]: properties.filter(`SamplePlan.Algo${i}`)
+      // }break;
     }
   };
 
@@ -244,14 +222,14 @@ function Table(props) {
       </select>
       <GridContextProvider onChange={onChange}>
         <div className="dropzonecontainer">
-          {console.log(items.modules, items.focusArea)}
+          {/* {console.log(items.sem5, items.focusArea)} */}
           <GridDropZone
             className="dropzone"
             id="sem1"
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[0].map((item) => (
+            {items.sem1.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
@@ -265,7 +243,7 @@ function Table(props) {
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[1].map((item) => (
+            {items.sem2.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
@@ -279,7 +257,7 @@ function Table(props) {
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[2].map((item) => (
+            {items.sem3.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
@@ -293,7 +271,7 @@ function Table(props) {
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[3].map((item) => (
+            {items.sem4.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
@@ -307,7 +285,7 @@ function Table(props) {
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[4].map((item) => (
+            {items.sem5.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
@@ -321,7 +299,7 @@ function Table(props) {
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[5].map((item) => (
+            {items.sem6.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
@@ -335,7 +313,7 @@ function Table(props) {
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[6].map((item) => (
+            {items.sem7.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
@@ -349,7 +327,7 @@ function Table(props) {
             boxesPerRow={1}
             rowHeight={70}
           >
-            {items.modules[7].map((item) => (
+            {items.sem8.map((item) => (
               <GridItem key={item.moduleCode}>
                 <div className="grid-item">
                   <div className="grid-item-content">{item.moduleCode}</div>
