@@ -5,15 +5,15 @@ import styled from "styled-components";
 
 const ModuleBankWrapper = styled.div`
   height: 570px;
-  width: auto;
+  width: 130px;
   background: #5b5b5b;
   border-radius: 1rem;
-  margin: auto;
+  // margin: auto;
   border-style: solid;
   border-color: red;
   align: center;
   position: relative;
-  overflow: hidden;
+  overflow: scroll;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -29,68 +29,60 @@ class ModuleBank extends Component {
   }
 
   handleField = (event) => {
-    switch (event.target.value) {
-      case "Algo":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "AI":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "Graphics":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "Security":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "DB":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "Media":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "Network":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "Parallel":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "Languages":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      case "SE":
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-      default:
-        return this.setState({
-          modules: this.props.data.filter(bank.FilterAlgo),
-          selectedField: event.target.value,
-        });
-    }
+    // using the second parameter (callback function) to prevent delayed rendering of the list
+    // since setState is asynchronous
+    this.setState({ selectedField: event.target.value }, () => {
+      switch (this.state.selectedField) {
+        case "Algo":
+          this.setState({ modules: this.props.data.filter(bank.FilterAlgo) });
+          break;
+        case "AI":
+          this.setState({ modules: this.props.data.filter(bank.FilterAI) });
+          break;
+        case "Graphics":
+          this.setState({
+            modules: this.props.data.filter(bank.FilterGraphics),
+          });
+          break;
+        case "Security":
+          this.setState({
+            modules: this.props.data.filter(bank.FilterSecurity),
+          });
+          break;
+        case "DB":
+          this.setState({ modules: this.props.data.filter(bank.FilterDB) });
+          break;
+        case "Media":
+          this.setState({ modules: this.props.data.filter(bank.FilterMedia) });
+          break;
+        case "Network":
+          this.setState({
+            modules: this.props.data.filter(bank.FilterNetwork),
+          });
+          break;
+        case "Parallel":
+          this.setState({
+            modules: this.props.data.filter(bank.FilterParallel),
+          });
+          break;
+        case "Languages":
+          this.setState({
+            modules: this.props.data.filter(bank.FilterLanguages),
+          });
+          break;
+        case "SE":
+          this.setState({ modules: this.props.data.filter(bank.FilterSE) });
+          break;
+        default:
+          this.setState({ modules: this.props.data });
+          break;
+      }
+    });
   };
 
   render() {
     return (
-      <ModuleBankWrapper>
+      <div>
         <select
           className="custom-select"
           value={this.state.selectedField}
@@ -108,11 +100,13 @@ class ModuleBank extends Component {
           <option value="Languages">Programming Languages</option>
           <option velue="SE">Software Engineering</option>
         </select>
-        {console.log(this.props.data, this.state.modules)}
-        {this.state.modules.map((item) => (
-          <Cell data={item} />
-        ))}
-      </ModuleBankWrapper>
+        <ModuleBankWrapper>
+          {console.log(this.props.data, this.state.modules)}
+          {this.state.modules.map((item) => (
+            <Cell key={item.moduleCode} data={item} />
+          ))}
+        </ModuleBankWrapper>
+      </div>
     );
   }
 }

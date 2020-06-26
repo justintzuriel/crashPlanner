@@ -1,344 +1,231 @@
 import React from "react";
-import {
-  GridContextProvider,
-  GridDropZone,
-  GridItem,
-  swap,
-  move,
-} from "react-grid-dnd";
 import "./Components.css";
+import Cell from "./Cell";
 import SamplePlan from "../SamplePlan+ModuleBank/SamplePlan";
 import styled from "styled-components";
+import { Component } from "react";
 
 const TableWrapper = styled.div`
-  width: 1500px;
+  width: auto;
   border-style: solid;
   border-color: red;
-  display: inline;
+  display: flex;
 `;
 
-function Table(props) {
-  const properties = props.data;
+const ColumnWrapper = styled.div`
+  height: 570px;
+  width: 120px;
+  background: #5b5b5b;
+  border-radius: 1rem;
+  border-style: solid;
+  border-color: yellow;
+  align: center;
+  position: relative;
+  overflow: scroll;
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
 
-  const [items, setItems] = React.useState({
-    sem1: props.data.filter(SamplePlan.AlgoS1),
-    sem2: props.data.filter(SamplePlan.AlgoS2),
-    sem3: props.data.filter(SamplePlan.AlgoS3),
-    sem4: props.data.filter(SamplePlan.AlgoS4),
-    sem5: props.data.filter(SamplePlan.AlgoS5),
-    sem6: props.data.filter(SamplePlan.AlgoS6),
-    sem7: props.data.filter(SamplePlan.AlgoS7),
-    sem8: props.data.filter(SamplePlan.AlgoS8),
-    focusArea: "Algo",
-  });
-
-  function onChange(sourceId, sourceIndex, targetIndex, targetId) {
-    if (targetId) {
-      const result = move(
-        items[sourceId],
-        items[targetId],
-        sourceIndex,
-        targetIndex
-      );
-      return setItems({
-        ...items,
-        [sourceId]: result[0],
-        [targetId]: result[1],
-      });
-    }
-
-    const result = swap(items[sourceId], sourceIndex, targetIndex);
-    return setItems({
-      ...items,
-      [sourceId]: result,
-    });
+class Table extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modules: [],
+      focusArea: "Algo",
+    };
   }
 
-  const handlePlan = (event) => {
-    switch (event.target.value) {
-      case "Algo":
-        return setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.AlgoS1),
-          sem2: properties.filter(SamplePlan.AlgoS2),
-          sem3: properties.filter(SamplePlan.AlgoS3),
-          sem4: properties.filter(SamplePlan.AlgoS4),
-          sem5: properties.filter(SamplePlan.AlgoS5),
-          sem6: properties.filter(SamplePlan.AlgoS6),
-          sem7: properties.filter(SamplePlan.AlgoS7),
-          sem8: properties.filter(SamplePlan.AlgoS8),
-        });
-        break;
-      case "AI":
-        return setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.AIS1),
-          sem2: properties.filter(SamplePlan.AIS2),
-          sem3: properties.filter(SamplePlan.AIS3),
-          sem4: properties.filter(SamplePlan.AIS4),
-          sem5: properties.filter(SamplePlan.AIS5),
-          sem6: properties.filter(SamplePlan.AIS6),
-          sem7: properties.filter(SamplePlan.AIS7),
-          sem8: properties.filter(SamplePlan.AIS8),
-        });
-        break;
-      case "Graphics":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.GraphicsS1),
-          sem2: properties.filter(SamplePlan.GraphicsS2),
-          sem3: properties.filter(SamplePlan.GraphicsS3),
-          sem4: properties.filter(SamplePlan.GraphicsS4),
-          sem5: properties.filter(SamplePlan.GraphicsS5),
-          sem6: properties.filter(SamplePlan.GraphicsS6),
-          sem7: properties.filter(SamplePlan.GraphicsS7),
-          sem8: properties.filter(SamplePlan.GraphicsS8),
-        });
-        break;
-      case "Security":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.SecurityS1),
-          sem2: properties.filter(SamplePlan.SecurityS2),
-          sem3: properties.filter(SamplePlan.SecurityS3),
-          sem4: properties.filter(SamplePlan.SecurityS4),
-          sem5: properties.filter(SamplePlan.SecurityS5),
-          sem6: properties.filter(SamplePlan.SecurityS6),
-          sem7: properties.filter(SamplePlan.SecurityS7),
-          sem8: properties.filter(SamplePlan.SecurityS8),
-        });
-        break;
-      case "DB":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.DBS1),
-          sem2: properties.filter(SamplePlan.DBS2),
-          sem3: properties.filter(SamplePlan.DBS3),
-          sem4: properties.filter(SamplePlan.DBS4),
-          sem5: properties.filter(SamplePlan.DBS5),
-          sem6: properties.filter(SamplePlan.DBS6),
-          sem7: properties.filter(SamplePlan.DBS7),
-          sem8: properties.filter(SamplePlan.DBS8),
-        });
-        break;
-      case "Media":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.MediaS1),
-          sem2: properties.filter(SamplePlan.MediaS2),
-          sem3: properties.filter(SamplePlan.MediaS3),
-          sem4: properties.filter(SamplePlan.MediaS4),
-          sem5: properties.filter(SamplePlan.MediaS5),
-          sem6: properties.filter(SamplePlan.MediaS6),
-          sem7: properties.filter(SamplePlan.MediaS7),
-          sem8: properties.filter(SamplePlan.MediaS8),
-        });
-        break;
-      case "Network":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.NetworkS1),
-          sem2: properties.filter(SamplePlan.NetworkS2),
-          sem3: properties.filter(SamplePlan.NetworkS3),
-          sem4: properties.filter(SamplePlan.NetworkS4),
-          sem5: properties.filter(SamplePlan.NetworkS5),
-          sem6: properties.filter(SamplePlan.NetworkS6),
-          sem7: properties.filter(SamplePlan.NetworkS7),
-          sem8: properties.filter(SamplePlan.NetworkS8),
-        });
-        break;
-      case "Parallel":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.ParallelS1),
-          sem2: properties.filter(SamplePlan.ParallelS2),
-          sem3: properties.filter(SamplePlan.ParallelS3),
-          sem4: properties.filter(SamplePlan.ParallelS4),
-          sem5: properties.filter(SamplePlan.ParallelS5),
-          sem6: properties.filter(SamplePlan.ParallelS6),
-          sem7: properties.filter(SamplePlan.ParallelS7),
-          sem8: properties.filter(SamplePlan.ParallelS8),
-        });
-        break;
-      case "Languages":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.LanguagesS1),
-          sem2: properties.filter(SamplePlan.LanguagesS2),
-          sem3: properties.filter(SamplePlan.LanguagesS3),
-          sem4: properties.filter(SamplePlan.LanguagesS4),
-          sem5: properties.filter(SamplePlan.LanguagesS5),
-          sem6: properties.filter(SamplePlan.LanguagesS6),
-          sem7: properties.filter(SamplePlan.LanguagesS7),
-          sem8: properties.filter(SamplePlan.LanguagesS8),
-        });
-        break;
-      case "SE":
-        setItems({
-          ...items,
-          focusArea: event.target.value,
-          sem1: properties.filter(SamplePlan.SES1),
-          sem2: properties.filter(SamplePlan.SES2),
-          sem3: properties.filter(SamplePlan.SES3),
-          sem4: properties.filter(SamplePlan.SES4),
-          sem5: properties.filter(SamplePlan.SES5),
-          sem6: properties.filter(SamplePlan.SES6),
-          sem7: properties.filter(SamplePlan.SES7),
-          sem8: properties.filter(SamplePlan.SES8),
-        });
-        break;
-      // for(i = 1; i <= 8; i++){
-      //   ["sem"+i]: properties.filter(`SamplePlan.Algo${i}`)
-      // }break;
-    }
+  handlePlan = (event) => {
+    // using the second parameter (callback function) to prevent delayed rendering of the list
+    // since setState is asynchronous
+    this.setState({ focusArea: event.target.value }, () => {
+      switch (this.state.focusArea) {
+        case "Algo":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.AlgoS1),
+              this.props.data.filter(SamplePlan.AlgoS2),
+              this.props.data.filter(SamplePlan.AlgoS3),
+              this.props.data.filter(SamplePlan.AlgoS4),
+              this.props.data.filter(SamplePlan.AlgoS5),
+              this.props.data.filter(SamplePlan.AlgoS6),
+              this.props.data.filter(SamplePlan.AlgoS7),
+              this.props.data.filter(SamplePlan.AlgoS8),
+            ],
+          });
+          break;
+        case "AI":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.AIS1),
+              this.props.data.filter(SamplePlan.AIS2),
+              this.props.data.filter(SamplePlan.AIS3),
+              this.props.data.filter(SamplePlan.AIS4),
+              this.props.data.filter(SamplePlan.AIS5),
+              this.props.data.filter(SamplePlan.AIS6),
+              this.props.data.filter(SamplePlan.AIS7),
+              this.props.data.filter(SamplePlan.AIS8),
+            ],
+          });
+          break;
+        case "Graphics":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.GraphicsS1),
+              this.props.data.filter(SamplePlan.GraphicsS2),
+              this.props.data.filter(SamplePlan.GraphicsS3),
+              this.props.data.filter(SamplePlan.GraphicsS4),
+              this.props.data.filter(SamplePlan.GraphicsS5),
+              this.props.data.filter(SamplePlan.GraphicsS6),
+              this.props.data.filter(SamplePlan.GraphicsS7),
+              this.props.data.filter(SamplePlan.GraphicsS8),
+            ],
+          });
+          break;
+        case "Security":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.SecurityS1),
+              this.props.data.filter(SamplePlan.SecurityS2),
+              this.props.data.filter(SamplePlan.SecurityS3),
+              this.props.data.filter(SamplePlan.SecurityS4),
+              this.props.data.filter(SamplePlan.SecurityS5),
+              this.props.data.filter(SamplePlan.SecurityS6),
+              this.props.data.filter(SamplePlan.SecurityS7),
+              this.props.data.filter(SamplePlan.SecurityS8),
+            ],
+          });
+          break;
+        case "DB":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.DBS1),
+              this.props.data.filter(SamplePlan.DBS2),
+              this.props.data.filter(SamplePlan.DBS3),
+              this.props.data.filter(SamplePlan.DBS4),
+              this.props.data.filter(SamplePlan.DBS5),
+              this.props.data.filter(SamplePlan.DBS6),
+              this.props.data.filter(SamplePlan.DBS7),
+              this.props.data.filter(SamplePlan.DBS8),
+            ],
+          });
+          break;
+        case "Media":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.MediaS1),
+              this.props.data.filter(SamplePlan.MediaS2),
+              this.props.data.filter(SamplePlan.MediaS3),
+              this.props.data.filter(SamplePlan.MediaS4),
+              this.props.data.filter(SamplePlan.MediaS5),
+              this.props.data.filter(SamplePlan.MediaS6),
+              this.props.data.filter(SamplePlan.MediaS7),
+              this.props.data.filter(SamplePlan.MediaS8),
+            ],
+          });
+          break;
+        case "Network":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.NetworkS1),
+              this.props.data.filter(SamplePlan.NetworkS2),
+              this.props.data.filter(SamplePlan.NetworkS3),
+              this.props.data.filter(SamplePlan.NetworkS4),
+              this.props.data.filter(SamplePlan.NetworkS5),
+              this.props.data.filter(SamplePlan.NetworkS6),
+              this.props.data.filter(SamplePlan.NetworkS7),
+              this.props.data.filter(SamplePlan.NetworkS8),
+            ],
+          });
+          break;
+        case "Parallel":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.ParallelS1),
+              this.props.data.filter(SamplePlan.ParallelS2),
+              this.props.data.filter(SamplePlan.ParallelS3),
+              this.props.data.filter(SamplePlan.ParallelS4),
+              this.props.data.filter(SamplePlan.ParallelS5),
+              this.props.data.filter(SamplePlan.ParallelS6),
+              this.props.data.filter(SamplePlan.ParallelS7),
+              this.props.data.filter(SamplePlan.ParallelS8),
+            ],
+          });
+          break;
+        case "Languages":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.LanguagesS1),
+              this.props.data.filter(SamplePlan.LanguagesS2),
+              this.props.data.filter(SamplePlan.LanguagesS3),
+              this.props.data.filter(SamplePlan.LanguagesS4),
+              this.props.data.filter(SamplePlan.LanguagesS5),
+              this.props.data.filter(SamplePlan.LanguagesS6),
+              this.props.data.filter(SamplePlan.LanguagesS7),
+              this.props.data.filter(SamplePlan.LanguagesS8),
+            ],
+          });
+          break;
+        case "SE":
+          this.setState({
+            modules: [
+              this.props.data.filter(SamplePlan.SES1),
+              this.props.data.filter(SamplePlan.SES2),
+              this.props.data.filter(SamplePlan.SES3),
+              this.props.data.filter(SamplePlan.SES4),
+              this.props.data.filter(SamplePlan.SES5),
+              this.props.data.filter(SamplePlan.SES6),
+              this.props.data.filter(SamplePlan.SES7),
+              this.props.data.filter(SamplePlan.SES8),
+            ],
+          });
+          break;
+      }
+    });
   };
 
-  return (
-    <TableWrapper>
-      <select
-        className="custom-select"
-        value={items.focusArea}
-        onChange={handlePlan}
-      >
-        <option value="Algo"> Algorithms and Theory</option>
-        <option value="AI">Artificial Intelligence</option>
-        <option value="Graphics">Computer Graphics and Games</option>
-        <option value="Security">Computer Security</option>
-        <option value="DB">Database Systems</option>
-        <option value="Media">Multimedia Information Retrieval</option>
-        <option value="Network">Networking and Distributed Systems</option>
-        <option value="Parallel">Parallel Computing</option>
-        <option value="Languages">Programming Languages</option>
-        <option value="SE">Software Engineering</option>
-      </select>
-      <GridContextProvider onChange={onChange}>
-        <div className="dropzonecontainer">
-          {/* {console.log(items.sem5, items.focusArea)} */}
-          <GridDropZone
-            className="dropzone"
-            id="sem1"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem1.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-          <GridDropZone
-            className="dropzone"
-            id="sem2"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem2.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-          <GridDropZone
-            className="dropzone"
-            id="sem3"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem3.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-          <GridDropZone
-            className="dropzone"
-            id="sem4"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem4.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-          <GridDropZone
-            className="dropzone"
-            id="sem5"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem5.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-          <GridDropZone
-            className="dropzone"
-            id="sem6"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem6.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-          <GridDropZone
-            className="dropzone"
-            id="sem7"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem7.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-          <GridDropZone
-            className="dropzone"
-            id="sem8"
-            boxesPerRow={1}
-            rowHeight={70}
-          >
-            {items.sem8.map((item) => (
-              <GridItem key={item.moduleCode}>
-                <div className="grid-item">
-                  <div className="grid-item-content">{item.moduleCode}</div>
-                </div>
-              </GridItem>
-            ))}
-          </GridDropZone>
-        </div>
-      </GridContextProvider>
-    </TableWrapper>
-  );
+  handleSelectTable = (moduleCode) => {
+    this.props.handleSelect(moduleCode); // call the handleSelectContainer to update the state in the container component
+    console.log("Jancuk");
+  };
+
+  render() {
+    return (
+      <div>
+        <select
+          className="custom-select"
+          value={this.state.focusArea}
+          onChange={this.handlePlan}
+        >
+          <option value="Algo"> Algorithms and Theory</option>
+          <option value="AI">Artificial Intelligence</option>
+          <option value="Graphics">Computer Graphics and Games</option>
+          <option value="Security">Computer Security</option>
+          <option value="DB">Database Systems</option>
+          <option value="Media">Multimedia Information Retrieval</option>
+          <option value="Network">Networking and Distributed Systems</option>
+          <option value="Parallel">Parallel Computing</option>
+          <option value="Languages">Programming Languages</option>
+          <option value="SE">Software Engineering</option>
+        </select>
+        {/* {console.log(this.props.data, this.state.modules)} */}
+        <TableWrapper>
+          {this.state.modules.map((arr) => (
+            <ColumnWrapper>
+              {arr.map((item) => (
+                <Cell
+                  key={item.moduleCode}
+                  data={item}
+                  handleSelect={this.handleSelectTable}
+                />
+              ))}
+            </ColumnWrapper>
+          ))}
+        </TableWrapper>
+      </div>
+    );
+  }
 }
 
 export default Table;
