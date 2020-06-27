@@ -1,41 +1,41 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 const SButton = styled.button`
+  display: block;
   position: relative;
   width: 100%;
   height: 30px;
-  background: ${(props) => (props.YisSelected ? "yellow" : "#6aa84fff")};
+  background: ${(props) => (props.isSelected ? "#94eb6e" : "#6aa84f")};
   color: ${(props) => (props.isSelected ? "black" : "white")};
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
   text-align: left;
   padding-left: 20px;
+  padding-right: 20px;
   border: none;
   border-bottom: 1px solid black;
   outline: none;
   cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   :hover {
-    background: #d3c1e5;
-    border: 1px solid #d3c1e5;
+    background: #94eb6e;
+    color: black;
   }
 `;
 
-class Cell extends Component {
-  handleSelect = () => {
-    this.props.handleSelect(this.props.data.moduleCode); // call the handleSelectTable to update the state in the container component
-  };
-
+class CellFlat extends Component {
   render() {
     return (
       <SButton
         isSelected={this.props.data.isSelected}
-        onClick={this.handleSelect}
+        onClick={() => this.props.handleSelect(this.props.data.moduleCode)}
       >
-        {" "}
-        {this.props.data.moduleCode}
+        {this.props.data.moduleCode + " " + this.props.data.title}
       </SButton>
     );
   }
 }
 
-export default Cell;
+export default CellFlat;

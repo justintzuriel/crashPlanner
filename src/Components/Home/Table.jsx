@@ -1,7 +1,7 @@
 import React from "react";
 import "./Components.css";
 import Cell from "./Cell";
-import SamplePlan from "../SamplePlan+ModuleBank/SamplePlan";
+import SamplePlan from "../../Constants/SamplePlan";
 import styled from "styled-components";
 import { Component } from "react";
 
@@ -26,6 +26,9 @@ const TableWrapper = styled.div`
 `;
 
 const ColumnWrapper = styled.div`
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
   background: #5b5b5b;
   width: 100%;
   border-left: 1px solid black;
@@ -35,6 +38,13 @@ const ColumnWrapper = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+`;
+
+const Semester = styled.div`
+  text-align: center;
+  padding: 10px;
+  background: #94eb6e;
+  border-bottom: 1px solid black;
 `;
 
 class Table extends Component {
@@ -221,13 +231,14 @@ class Table extends Component {
         </Selector>
         {/* {console.log(this.props.data, this.state.modules)} */}
         <TableWrapper>
-          {this.state.modules.map((arr) => (
+          {this.props.cellData.map((col) => (
             <ColumnWrapper>
-              {arr.map((item) => (
+              <Semester>{"SEMESTER " + col[0].col}</Semester>
+              {col.map((cell) => (
                 <Cell
-                  key={item.moduleCode}
-                  data={item}
-                  handleSelect={this.handleSelectTable}
+                  key={cell.id}
+                  data={cell}
+                  handleSelect={this.props.handleSelect}
                 />
               ))}
             </ColumnWrapper>

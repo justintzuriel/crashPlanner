@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import styled from "styled-components";
 const SButton = styled.button`
   width: 100%;
-  height: 100px;
+  height: 100%;
   box-sizing: border-box;
-  background: ${(props) => (props.YisSelected ? "yellow" : "#6aa84fff")};
+  background: ${(props) => (props.isSelected ? "#94eb6e" : "#6aa84f")};
   display: flex;
   justify-content: center;
   color: ${(props) => (props.isSelected ? "black" : "white")};
@@ -15,24 +15,22 @@ const SButton = styled.button`
   outline: none;
   cursor: pointer;
   :hover {
-    background: #d3c1e5;
-    border: 1px solid #d3c1e5;
+    background: #94eb6e;
+    color: black;
   }
 `;
 
 class Cell extends Component {
-  handleSelect = () => {
-    this.props.handleSelect(this.props.data.moduleCode); // call the handleSelectTable to update the state in the container component
-  };
-
   render() {
     return (
       <SButton
         isSelected={this.props.data.isSelected}
-        onClick={this.handleSelect}
+        onClick={() =>
+          this.props.handleSelect(this.props.data.col, this.props.data.row)
+        }
       >
         {" "}
-        {this.props.data.moduleCode}
+        {this.props.data.modCode}
       </SButton>
     );
   }
