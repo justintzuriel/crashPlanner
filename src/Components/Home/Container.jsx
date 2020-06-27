@@ -5,12 +5,15 @@ import styled from "styled-components";
 import Table from "./Table";
 
 const Wrapper = styled.div`
-  width: auto;
   display: flex;
-  border-color: blue;
+  flex-direction: row;
+  width: 95%;
+  height: 800px;
   border-radius: 1rem;
-  border-style: solid;
   margin: auto;
+  margin-top: 30px;
+  background-color: #a7b392;
+  overflow: hidden;
 `;
 
 class Container extends Component {

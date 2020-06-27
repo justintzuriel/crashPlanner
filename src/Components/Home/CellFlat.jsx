@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 const SButton = styled.button`
+  position: relative;
   width: 100%;
-  height: 100px;
-  box-sizing: border-box;
+  height: 30px;
   background: ${(props) => (props.YisSelected ? "yellow" : "#6aa84fff")};
-  display: flex;
-  justify-content: center;
   color: ${(props) => (props.isSelected ? "black" : "white")};
   font-family: Arial, Helvetica, sans-serif;
-  align-items: center;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 20px;
   border: none;
   border-bottom: 1px solid black;
   outline: none;

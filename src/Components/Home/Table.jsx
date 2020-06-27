@@ -5,20 +5,30 @@ import SamplePlan from "../SamplePlan+ModuleBank/SamplePlan";
 import styled from "styled-components";
 import { Component } from "react";
 
-const TableWrapper = styled.div`
-  width: auto;
-  border-style: solid;
-  border-color: red;
+const Container = styled.div`
   display: flex;
+  flex-flow: column;
+  width: 100%;
+  height: 100%;
+`;
+
+const Selector = styled.select`
+  display: inline-block;
+  width: 100%;
+`;
+
+const TableWrapper = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
 `;
 
 const ColumnWrapper = styled.div`
-  height: 570px;
-  width: 120px;
   background: #5b5b5b;
-  border-radius: 1rem;
-  border-style: solid;
-  border-color: yellow;
+  width: 100%;
+  border-left: 1px solid black;
   align: center;
   position: relative;
   overflow: scroll;
@@ -192,8 +202,8 @@ class Table extends Component {
 
   render() {
     return (
-      <div>
-        <select
+      <Container>
+        <Selector
           className="custom-select"
           value={this.state.focusArea}
           onChange={this.handlePlan}
@@ -208,7 +218,7 @@ class Table extends Component {
           <option value="Parallel">Parallel Computing</option>
           <option value="Languages">Programming Languages</option>
           <option value="SE">Software Engineering</option>
-        </select>
+        </Selector>
         {/* {console.log(this.props.data, this.state.modules)} */}
         <TableWrapper>
           {this.state.modules.map((arr) => (
@@ -223,7 +233,7 @@ class Table extends Component {
             </ColumnWrapper>
           ))}
         </TableWrapper>
-      </div>
+      </Container>
     );
   }
 }

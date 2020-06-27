@@ -1,22 +1,34 @@
 import React, { Component } from "react";
 import bank from "../SamplePlan+ModuleBank/ModuleBankFunction";
-import Cell from "./Cell";
+import CellFlat from "./CellFlat";
 import styled from "styled-components";
 
-const ModuleBankWrapper = styled.div`
-  height: 570px;
-  width: 130px;
-  background: #5b5b5b;
-  border-radius: 1rem;
-  // margin: auto;
-  border-style: solid;
-  border-color: red;
-  align: center;
-  position: relative;
-  overflow: scroll;
+const Container = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 100%;
+  overflow: auto;
   ::-webkit-scrollbar {
     display: none;
   }
+`;
+
+const Selector = styled.select`
+  display: block;
+  position: fixed;
+  z-index: 5;
+  width: 17%;
+  border: none;
+  outline: none;
+`;
+
+const ModuleBankWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 95.2%;
+  background: #5b5b5b;
+  margin-top: 39px;
 `;
 
 class ModuleBank extends Component {
@@ -82,8 +94,8 @@ class ModuleBank extends Component {
 
   render() {
     return (
-      <div>
-        <select
+      <Container>
+        <Selector
           className="custom-select"
           value={this.state.selectedField}
           onChange={this.handleField}
@@ -99,14 +111,14 @@ class ModuleBank extends Component {
           <option value="Parallel">Parallel Computing</option>
           <option value="Languages">Programming Languages</option>
           <option velue="SE">Software Engineering</option>
-        </select>
+        </Selector>
         <ModuleBankWrapper>
           {console.log(this.props.data, this.state.modules)}
           {this.state.modules.map((item) => (
-            <Cell key={item.moduleCode} data={item} />
+            <CellFlat key={item.moduleCode} data={item} />
           ))}
         </ModuleBankWrapper>
-      </div>
+      </Container>
     );
   }
 }
