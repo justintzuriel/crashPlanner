@@ -179,7 +179,7 @@ class Container extends Component {
       newCellData[data.col][data.row] = {
         ...newCellData[data.col][data.row],
         mod: this.state.selectedMod,
-        selectedModData: this.state.selectedModData,
+        modData: this.state.selectedModData,
         isSelected: false,
       };
       newCellData[this.state.toMove.col][this.state.toMove.row] = {

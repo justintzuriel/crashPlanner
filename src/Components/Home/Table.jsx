@@ -1,5 +1,4 @@
 import React from "react";
-import "./Components.css";
 import Cell from "./Cell";
 import SamplePlan from "../../Constants/SamplePlan";
 import styled from "styled-components";
