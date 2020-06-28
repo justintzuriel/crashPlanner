@@ -19,7 +19,7 @@ function AlgoS4(item) {
 }
 
 function AlgoS5(item) {
-  let sem5 = ["CS3203", "CS3230", "Math and Sci", "CS4232", "CS4234", "UE"];
+  let sem5 = ["CS3203", "Math and Sci", "CS4232", "CS4234", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -59,7 +59,7 @@ function AIS4(item) {
 }
 
 function AIS5(item) {
-  let sem5 = ["CS3203", "CS3230", "CS4248", "Math and Sci", "UE"];
+  let sem5 = ["CS3203", "CS4248", "Math and Sci", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -99,7 +99,7 @@ function SecurityS4(item) {
 }
 
 function SecurityS5(item) {
-  let sem5 = ["CS3203", "CS3230", "Math and Sci", "UE", "CS4236", "CS4239"];
+  let sem5 = ["CS3203", "Math and Sci", "UE", "CS4236", "CS4239"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -139,7 +139,7 @@ function DBS4(item) {
 }
 
 function DBS5(item) {
-  let sem5 = ["CS3203", "CS3230", "Math and Sci", "CS4224", "UE"];
+  let sem5 = ["CS3203", "Math and Sci", "CS4224", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -179,7 +179,7 @@ function GraphicsS4(item) {
 }
 
 function GraphicsS5(item) {
-  let sem5 = ["CS3203", "CS3230", "CS4350", "Math and Sci", "UE"];
+  let sem5 = ["CS3203", "CS4350", "Math and Sci", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -218,7 +218,7 @@ function LanguagesS4(item) {
 }
 
 function LanguagesS5(item) {
-  let sem5 = ["CS3203", "CS3230", "CS4212", "Math and Sci", "UE"];
+  let sem5 = ["CS3203", "CS4212", "Math and Sci", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -266,7 +266,7 @@ function MediaS4(item) {
 }
 
 function MediaS5(item) {
-  let sem5 = ["CS3203", "CS3230", "CS4248", "Math and Sci", "UE"];
+  let sem5 = ["CS3203", "CS4248", "Math and Sci", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -306,7 +306,7 @@ function NetworkS4(item) {
 }
 
 function NetworkS5(item) {
-  let sem5 = ["CS3203", "CS3230", "CS3103", "CS4226", "Math and Sci", "UE"];
+  let sem5 = ["CS3203", "CS3103", "CS4226", "Math and Sci", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -346,7 +346,7 @@ function ParallelS4(item) {
 }
 
 function ParallelS5(item) {
-  let sem5 = ["CS3203", "CS3230", "CS4223", "Math and Sci", "UE"];
+  let sem5 = ["CS3203", "CS4223", "Math and Sci", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
@@ -386,15 +386,7 @@ function SES4(item) {
 }
 
 function SES5(item) {
-  let sem5 = [
-    "CS3203",
-    "CS3230",
-    "CS3219",
-    "CS4211",
-    "CS4239",
-    "Math and Sci",
-    "UE",
-  ];
+  let sem5 = ["CS3203", "CS3219", "CS4211", "CS4239", "Math and Sci", "UE"];
   return sem5.includes(item.moduleCode);
 }
 
