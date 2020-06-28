@@ -1,7 +1,7 @@
 export const algo = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -38,7 +38,7 @@ export const algo = [
 export const ai = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -75,7 +75,7 @@ export const ai = [
 export const graphics = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -111,7 +111,7 @@ export const graphics = [
 export const security = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -148,7 +148,7 @@ export const security = [
 export const db = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -177,7 +177,7 @@ export const db = [
 export const media = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -204,7 +204,7 @@ export const media = [
 export const network = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -236,7 +236,7 @@ export const network = [
 export const parallel = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -265,7 +265,7 @@ export const parallel = [
 export const languages = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -295,7 +295,7 @@ export const languages = [
 export const se = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",

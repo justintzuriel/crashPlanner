@@ -4,7 +4,7 @@ const SButton = styled.button`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: ${(props) => (props.isSelected ? "#94eb6e" : "#6aa84f")};
+  background: ${(props) => (props.isSelected ? "#bcff9e" : "#6aa84f")};
   display: flex;
   justify-content: center;
   color: ${(props) => (props.isSelected ? "black" : "white")};
@@ -25,12 +25,11 @@ class Cell extends Component {
     return (
       <SButton
         isSelected={this.props.data.isSelected}
-        onClick={() =>
-          this.props.handleSelect(this.props.data.col, this.props.data.row)
-        }
+        onClick={() => this.props.handleSelect(this.props.data)}
+        onDoubleClick={() => this.props.handleDelete(this.props.data)}
       >
         {" "}
-        {this.props.data.modCode}
+        {this.props.data.mod.moduleCode}
       </SButton>
     );
   }

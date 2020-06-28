@@ -207,7 +207,6 @@ class Table extends Component {
 
   handleSelectTable = (moduleCode) => {
     this.props.handleSelect(moduleCode); // call the handleSelectContainer to update the state in the container component
-    console.log("Jancuk");
   };
 
   render() {
@@ -233,12 +232,13 @@ class Table extends Component {
         <TableWrapper>
           {this.props.cellData.map((col) => (
             <ColumnWrapper>
-              <Semester>{"SEMESTER " + col[0].col}</Semester>
+              <Semester>{"SEMESTER " + (col[0].col + 1)}</Semester>
               {col.map((cell) => (
                 <Cell
                   key={cell.id}
                   data={cell}
                   handleSelect={this.props.handleSelect}
+                  handleDelete={this.props.handleDelete}
                 />
               ))}
             </ColumnWrapper>
