@@ -7,27 +7,23 @@ const Container = styled.div`
   flex-wrap: wrap;
   width: 400px;
   height: 100%;
-  overflow: auto;
-  ::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 const Selector = styled.select`
-  display: block;
-  position: fixed;
-  z-index: 5;
-  width: 17%;
+  position: relative;
   border: none;
   outline: none;
 `;
 
 const ModuleBankWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 400px;
   height: 95.2%;
   background: #5b5b5b;
-  margin-top: 39px;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 class ModuleBank extends Component {

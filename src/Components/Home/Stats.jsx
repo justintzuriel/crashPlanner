@@ -60,7 +60,10 @@ class Stats extends Component {
           <List>
             <li>Select a module from the module bank or from a cell</li>
             <li>Click on a cell to place the selected module</li>
-            <li>Double-click on a cell to delete the module</li>
+            <li>
+              With no cell selected, double-click on a cell to delete its
+              contents
+            </li>
           </List>
         </Instructions>
       </StatsWrapper>
