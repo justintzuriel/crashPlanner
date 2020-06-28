@@ -233,7 +233,7 @@ class Table extends Component {
         <TableWrapper>
           {this.props.cellData.map((col) => (
             <ColumnWrapper>
-              <Semester>{"SEMESTER " + col[0].col}</Semester>
+              <Semester>{"SEMESTER " + (col[0].col + 1)}</Semester>
               {col.map((cell) => (
                 <Cell
                   key={cell.id}
