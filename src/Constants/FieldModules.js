@@ -1,7 +1,7 @@
 export const core = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -23,7 +23,7 @@ export const core = [
 export const algo = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -80,7 +80,7 @@ export const algoSpecs = {
 export const ai = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -119,7 +119,7 @@ export const aiSpecs = {
 export const graphics = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -174,7 +174,7 @@ export const graphicsSpecs = {
 export const security = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -231,7 +231,7 @@ export const securitySpecs = {
 export const db = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -267,7 +267,7 @@ export const dbSpecs = {
 export const media = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -301,7 +301,7 @@ export const mediaSpecs = {
 export const network = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -348,7 +348,7 @@ export const networkSpecs = {
 export const parallel = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -384,7 +384,7 @@ export const parallelSpecs = {
 export const languages = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -421,7 +421,7 @@ export const languagesSpecs = {
 export const se = [
   "CS1101S",
   "CS1231S",
-  "CS2030S",
+  "cs2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
