@@ -214,7 +214,7 @@ class Table extends Component {
         <Selector
           className="custom-select"
           value={this.state.focusArea}
-          onChange={this.handlePlan}
+          onChange={() => {}}
         >
           <option value="Algo"> Algorithms and Theory</option>
           <option value="AI">Artificial Intelligence</option>

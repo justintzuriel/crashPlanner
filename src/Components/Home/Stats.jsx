@@ -48,6 +48,14 @@ class Stats extends Component {
           <Number>{this.props.noMcs}</Number>
         </MCWrapper>
         <Instructions>
+          Features to finish:
+          <List>
+            <li>Focus area calender templates</li>
+            <li>Graduation checklist</li>
+            <li>Fetch/filter optimization</li>
+          </List>
+        </Instructions>
+        <Instructions>
           How to use:
           <List>
             <li>Select a module from the module bank or from a cell</li>
