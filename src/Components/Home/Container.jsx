@@ -144,6 +144,13 @@ class Container extends Component {
       ) {
         alert(this.state.selectedMod.moduleCode + " already in calender!");
       } else {
+        if (Object.keys(newCellData[data.col][data.row].mod).length !== 0) {
+          newCellData[data.col][data.row].modData.then((res) =>
+            this.setState({
+              noMcs: this.state.noMcs - Number(res.moduleCredit),
+            })
+          );
+        }
         newCellData[data.col][data.row] = {
           ...newCellData[data.col][data.row],
           mod: this.state.selectedMod,
@@ -197,22 +204,22 @@ class Container extends Component {
   };
 
   handleDelete = (data) => {
-    if (Object.keys(data.mod).length === 0) {
-      return;
+    if (Object.keys(data.mod).length !== 0 && !this.state.canMove) {
+      //to avoid non-deleting cells due to moving (negative mc count)
+      const newCellData = this.state.cellData.slice();
+      newCellData[data.col][data.row] = {
+        ...newCellData[data.col][data.row],
+        mod: {},
+        selectedModData: {},
+        isSelected: false,
+      };
+      data.modData.then((res) =>
+        this.setState({ noMcs: this.state.noMcs - Number(res.moduleCredit) })
+      );
+      this.setState({
+        cellData: newCellData,
+      });
     }
-    const newCellData = this.state.cellData.slice();
-    newCellData[data.col][data.row] = {
-      ...newCellData[data.col][data.row],
-      mod: {},
-      selectedModData: {},
-      isSelected: false,
-    };
-    data.modData.then((res) =>
-      this.setState({ noMcs: this.state.noMcs - Number(res.moduleCredit) })
-    );
-    this.setState({
-      cellData: newCellData,
-    });
   };
 
   test = () => {};
