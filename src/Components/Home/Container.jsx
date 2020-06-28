@@ -1,10 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, useContext } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import ModuleBank from "./ModuleBank";
 import Table from "./Table";
 import Stats from "./Stats";
+import Save from "./Database";
 import { allFieldsInit } from "../../Constants/AllFieldsInit";
+// import * as firebase from "firebase/app";
+// import app from "../../FirebaseConfig";
+// import { AuthContext } from "../../Auth";
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,6 +32,7 @@ const initCell = (col, row) => {
     modData: {},
   };
 };
+
 const cellDataInit = () => {
   const arr = [[], [], [], [], [], [], [], []];
   for (let i = 0; i < 8; i++) {
@@ -37,6 +42,14 @@ const cellDataInit = () => {
   }
   return arr;
 };
+
+// const fetchDatabase = () => {
+//   var user = firebase.auth().currentUser;
+//   app
+//     .database()
+//     .ref("/user" + user.displayName)
+//     .on("value");
+// };
 
 const allFields = allFieldsInit();
 
@@ -55,7 +68,10 @@ class Container extends Component {
     noMcs: 0,
   };
 
+  // static contextType = AuthContext;
+
   componentDidMount() {
+    // const currentUser = this.context;
     axios
       .get("https://api.nusmods.com/v2/2019-2020/moduleList.json")
       .then((result) => {
@@ -240,6 +256,7 @@ class Container extends Component {
           handleDelete={this.handleDelete}
         />
         <Stats noMcs={this.state.noMcs} />
+        <Save data={this.state.cellData} />
       </Wrapper>
     );
   }
