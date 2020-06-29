@@ -157,7 +157,7 @@ class Container extends Component {
           )
         )
       ) {
-        alert(this.state.selectedMod.moduleCode + " already in calender!");
+        alert(this.state.selectedMod.moduleCode + " already in calendar!");
       } else {
         if (Object.keys(newCellData[data.col][data.row].mod).length !== 0) {
           newCellData[data.col][data.row].modData.then((res) =>
