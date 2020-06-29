@@ -20,7 +20,7 @@ const SButton = styled.button`
   white-space: nowrap;
   overflow: hidden;
   :hover {
-    background: #94eb6e;
+    background: #bcff9e;
     color: black;
   }
 `;

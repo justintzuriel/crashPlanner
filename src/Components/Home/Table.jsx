@@ -44,6 +44,7 @@ const Semester = styled.div`
   padding: 10px;
   background: #94eb6e;
   border-bottom: 1px solid black;
+  font-weight: 600;
 `;
 
 class Table extends Component {

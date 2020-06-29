@@ -4,7 +4,7 @@ const SButton = styled.button`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: ${(props) => (props.isSelected ? "#bcff9e" : "#6aa84f")};
+  background: ${(props) => (props.isSelected ? "#94eb6e" : "#6aa84f")};
   display: flex;
   justify-content: center;
   color: ${(props) => (props.isSelected ? "black" : "white")};
@@ -15,7 +15,7 @@ const SButton = styled.button`
   outline: none;
   cursor: pointer;
   :hover {
-    background: #94eb6e;
+    background: #bcff9e;
     color: black;
   }
 `;
