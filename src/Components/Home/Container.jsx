@@ -4,7 +4,6 @@ import styled from "styled-components";
 import ModuleBank from "./ModuleBank";
 import Table from "./Table";
 import Stats from "./Stats";
-import Save from "./Database";
 import { allFieldsInit } from "../../Constants/AllFieldsInit";
 // import * as firebase from "firebase/app";
 // import app from "../../FirebaseConfig";
@@ -255,8 +254,7 @@ class Container extends Component {
           handleSelect={this.handleCellSelect}
           handleDelete={this.handleDelete}
         />
-        <Stats noMcs={this.state.noMcs} />
-        <Save data={this.state.cellData} />
+        <Stats noMcs={this.state.noMcs} saveData={this.state.cellData} />
       </Wrapper>
     );
   }

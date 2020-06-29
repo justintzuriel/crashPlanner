@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import * as firebase from "firebase/app";
 import app from "../../FirebaseConfig.js";
-const SaveData = (props) => {
+const SaveButton = (props) => {
   const data = props.data;
 
   var user = firebase.auth().currentUser;
@@ -11,6 +11,8 @@ const SaveData = (props) => {
   const userName = user.email.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "_");
   return (
     <button
+      className="btn btn-success"
+      style={{ background: "#6aa84f" }}
       onClick={() => {
         app
           .database()
@@ -23,4 +25,4 @@ const SaveData = (props) => {
   );
 };
 
-export default SaveData;
+export default SaveButton;

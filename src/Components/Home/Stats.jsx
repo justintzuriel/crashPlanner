@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import SaveButton from "./SaveButton";
 
 const StatsWrapper = styled.div`
   display: flex;
@@ -50,7 +51,8 @@ class Stats extends Component {
         <Instructions>
           Features to finish:
           <List>
-            <li>Focus area calender templates</li>
+            <li>Fetch saved user planner data</li>
+            <li>Focus area calendar templates</li>
             <li>Graduation checklist</li>
             <li>Fetch/filter optimization</li>
           </List>
@@ -64,8 +66,13 @@ class Stats extends Component {
               With no cell selected, double-click on a cell to delete its
               contents
             </li>
+            <li>
+              While logged-in, click the save button below to save your planner
+              data
+            </li>
           </List>
         </Instructions>
+        <SaveButton data={this.props.saveData} />
       </StatsWrapper>
     );
   }
