@@ -1,4 +1,4 @@
-export const core = [
+export const foundation = [
   "CS1101S",
   "CS1231S",
   "cs2030",
@@ -7,18 +7,13 @@ export const core = [
   "CS2103T",
   "CS2106",
   "CS3230",
-  "IS1103",
-  "CS2101",
-  "ES2660",
-  "MA1521",
-  "MA1101R",
-  "ST2334",
-  "CS3203",
-  "CS3216",
-  "CS3217",
-  "CS3281",
-  "CS3282",
 ];
+
+export const ITProfessionalism = ["IS1103", "CS2101", "ES2660"];
+
+export const mathAndScience = ["MA1521", "MA1101R", "ST2334"];
+
+export const teamProject = ["CS3203", "CS3216", "CS3217", "CS3281", "CS3282"];
 
 export const algo = [
   "CS1101S",
@@ -97,6 +92,23 @@ export const ai = [
   "CS3217",
   "CS3281",
   "CS3282",
+  "CS3243",
+  "CS3244",
+  "CS4243",
+  "CS4244",
+  "CS4246",
+  "CS4248",
+  "CS4220",
+  "CS4261",
+  "CS4269",
+  "CS4277",
+  "CS4278",
+  "CS5215",
+  "CS5228",
+  "CS5242",
+  "CS5260",
+  "CS5340",
+  "CS5339",
 ];
 
 export const aiSpecs = {

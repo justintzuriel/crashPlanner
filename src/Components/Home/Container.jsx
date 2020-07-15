@@ -5,6 +5,8 @@ import ModuleBank from "./ModuleBank";
 import Table from "./Table";
 import Stats from "./Stats";
 import { allFieldsInit } from "../../Constants/AllFieldsInit";
+import { templateInit } from "../../Constants/SamplePlan";
+
 // import * as firebase from "firebase/app";
 // import app from "../../FirebaseConfig";
 // import { AuthContext } from "../../Auth";
@@ -21,22 +23,35 @@ const Wrapper = styled.div`
   overflow: hidden;
 `;
 
-const initCell = (col, row) => {
+const initCell = (col, row, selected) => {
+  var mod,
+    modData = {};
+  if (selected !== "empty") {
+    let area = template[selected];
+    let modCol = area[col];
+    mod = { moduleCode: modCol[row] };
+    // if (mod.moduleCode != "empty" && mod != undefined)
+    //   modData = this.fetchModData(mod.moduleCode);
+  }
   return {
     id: col + "" + row,
     col: col,
     row: row,
     isSelected: false,
-    mod: {},
-    modData: {},
+    mod: selected !== "empty" ? { mod } : {},
+    modData: selected !== "empty" ? { modData } : {},
   };
 };
 
-const cellDataInit = () => {
+const cellDataInit = (selected) => {
   const arr = [[], [], [], [], [], [], [], []];
+  if (selected === undefined) {
+    selected = "empty";
+  }
+
   for (let i = 0; i < 8; i++) {
     for (let j = 0; j < 8; j++) {
-      arr[i].push(initCell(i, j));
+      arr[i].push(initCell(i, j, selected));
     }
   }
   return arr;
@@ -51,7 +66,7 @@ const cellDataInit = () => {
 // };
 
 const allFields = allFieldsInit();
-
+const template = templateInit();
 class Container extends Component {
   state = {
     fetchedModules: [],
@@ -147,7 +162,7 @@ class Container extends Component {
 
   handleCellSelect = (data) => {
     if (this.state.canAssign) {
-      // from moduleBank to calender
+      // from moduleBank to calendar
       const newCellData = this.state.cellData.slice();
 
       if (
@@ -216,6 +231,7 @@ class Container extends Component {
         canMove: false,
       });
     }
+    console.log(this.state.cellData);
   };
 
   handleDelete = (data) => {
@@ -237,8 +253,30 @@ class Container extends Component {
     }
   };
 
-  test = () => {};
+  handleSamplePlan = (event) => {
+    this.setState({ noMcs: 0 });
+    const selected = event.target.value;
+    var newCellData = cellDataInit(selected);
+    for (let col = 0; col < 8; col++) {
+      for (let row = 0; row < 8; row++) {
+        let moduleCode = newCellData[col][row].mod.mod.moduleCode; //lol okay dalem juga
+        // console.log(newCellData, newCellData[col][row], moduleCode);
+        let newMod = this.state.fetchedModules.find(
+          (item) => item.moduleCode == moduleCode
+        );
+        console.log(newMod);
+        newCellData[col][row] = {
+          ...newCellData[col][row],
+          mod: newMod !== undefined ? newMod : {},
+          modData: newMod !== undefined ? this.fetchModData(moduleCode) : {},
+        };
+      }
+    }
+    console.log(newCellData);
+    this.setState({ cellData: newCellData });
+  };
 
+  test = () => {};
   render() {
     return (
       <Wrapper>
@@ -253,6 +291,7 @@ class Container extends Component {
           cellData={this.state.cellData}
           handleSelect={this.handleCellSelect}
           handleDelete={this.handleDelete}
+          handleSamplePlan={this.handleSamplePlan}
         />
         <Stats noMcs={this.state.noMcs} saveData={this.state.cellData} />
       </Wrapper>
