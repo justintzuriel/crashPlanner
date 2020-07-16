@@ -262,7 +262,7 @@ class Container extends Component {
         let moduleCode = newCellData[col][row].mod.mod.moduleCode; //lol okay dalem juga
         // console.log(newCellData, newCellData[col][row], moduleCode);
         let newMod = this.state.fetchedModules.find(
-          (item) => item.moduleCode == moduleCode
+          (item) => item.moduleCode === moduleCode
         );
         console.log(newMod);
         newCellData[col][row] = {

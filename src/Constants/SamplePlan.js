@@ -1,6 +1,6 @@
 export const templateInit = () => {
   const arr = {
-    empty: [[], [], [], [], [], [], [], []],
+    // empty: [[], [], [], [], [], [], [], []],
     Algo: [
       [
         "CS1101S",
@@ -27,7 +27,7 @@ export const templateInit = () => {
         "CS2101",
         "CS2105",
         "CS2106",
-        "GESXXXX",
+        "GES1000",
         "empty",
         "empty",
         "empty",
@@ -37,33 +37,15 @@ export const templateInit = () => {
         "ES2660",
         "CS3236",
         "ST2334",
-        "GETXXXX",
-        "GEHXXXX",
+        "GET1021",
+        "GEH1010",
         "empty",
         "empty",
       ],
-      [
-        "CS3203",
-        "Math and Sci",
-        "CS4232",
-        "CS4234",
-        "UE",
-        "empty",
-        "empty",
-        "empty",
-      ],
-      [
-        "CS4231",
-        "Math and Sci",
-        "UE",
-        "UE",
-        "empty",
-        "empty",
-        "empty",
-        "empty",
-      ],
-      ["ATAP", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-      ["Focus Area", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+      ["CS3203", "CS4232", "CS4234", "UE", "empty", "empty", "empty", "empty"],
+      ["CS4231", "PC1221", "CS4234", "UE", "empty", "empty", "empty", "empty"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5330", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
     ],
     AI: [
       [
@@ -91,7 +73,7 @@ export const templateInit = () => {
         "CS2101",
         "CS2105",
         "CS2106",
-        "GESXXXX",
+        "GES1000",
         "empty",
         "empty",
         "empty",
@@ -101,436 +83,276 @@ export const templateInit = () => {
         "ES2660",
         "CS3243",
         "ST2334",
-        "GETXXXX",
-        "GEHXXXX",
+        "GET1021",
+        "GEH1010",
+        "empty",
+        "empty",
+      ],
+      ["CS3203", "CS4248", "PC1221", "UE", "empty", "empty", "empty", "empty"],
+      ["CS4246", "CS4244", "CS3244", "UE", "UE", "empty", "empty"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5339", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    Security: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
         "empty",
         "empty",
       ],
       [
-        "CS3203",
-        "CS4248",
-        "Math and Sci",
-        "UE",
-        "empty",
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
         "empty",
         "empty",
         "empty",
       ],
       [
-        "CS4246",
-        "CS4244",
-        "CS3244",
-        "Math and Sci",
-        "UE",
-        "UE",
+        "CS2103T",
+        "CS2101",
+        "CS2105",
+        "CS2106",
+        "CS2107",
+        "GES1000",
         "empty",
         "empty",
       ],
-      ["ATAP", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
-      ["Focus Area", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+      [
+        "CS3230",
+        "ES2660",
+        "CS3235",
+        "GET1021",
+        "GEH1010",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      ["CS3203", "CS4236", "CS4239", "UE", "empty", "empty", "empty"],
+      ["CS4238", "PC1221", "ST2334", "UE", "UE", "empty", "empty", "empty"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5331", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    DB: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2103T",
+        "CS2101",
+        "CS2105",
+        "CS2102",
+        "GES1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS3230",
+        "ES2660",
+        "CS3223",
+        "CS2106",
+        "GET1021",
+        "GEH1010",
+        "empty",
+        "empty",
+      ],
+      ["CS4224", "CS3203", "ST2334", "UE", "empty", "empty", "empty", "empty"],
+      ["CS4221", "CS4225", "PC1221", "UE", "UE", "empty", "empty", "empty"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5322", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    Graphics: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      ["CS2103T", "CS2101", "CS2105", "CS2106", "CS3241", "GES1000"],
+      ["CS3230", "ES2660", "CS3247", "GET1021", "GEH1010"],
+      ["CS3203", "CS4350", "ST2334", "UE"],
+      ["CS4347", "CS3242", "PC1221", "UE", "UE"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5343", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    Languages: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      ["CS2103T", "CS2101", "CS2105", "CS2106", "CS2104", "GES1000"],
+      ["CS3230", "ES2660", "CS3211", "GET1021", "GEH1010"],
+      ["CS3203", "CS4212", "ST2334", "UE"],
+      ["CS4215", "CS3234", "PC1221", "UE", "UE"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5218", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    Media: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      ["CS2103T", "CS2101", "CS2105", "CS2106", "GES1000"],
+      ["CS3230", "ES2660", "CS3245", "CS2108", "GET1021", "GEH1010", "empty"],
+      ["CS3203", "CS4248", "ST2334", "UE"],
+      ["CS4242", "CS4347", "PC1221", "UE", "UE"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5246", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    Network: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      ["CS2103T", "CS2101", "CS2105", "CS2106", "GES1000"],
+      ["CS3230", "ES2660", "CS3103", "ST2334", "GET1021", "GEH1010"],
+      ["CS3203", "CS3103", "CS4226", "PC1221"],
+      ["CS4231", "CS4222", "UE", "UE", "UE"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5229", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    Parallel: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      ["CS2103T", "CS2101", "CS2105", "CS2106", "CS3210", "GES1000"],
+      ["CS3230", "ES2660", "CS3211", "GET1021", "GEH1010"],
+      ["CS3203", "CS4223", "ST2334", "UE"],
+      ["CS4231", "CS5222", "PC1221", "UE", "UE"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5250", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
+    ],
+    SE: [
+      [
+        "CS1101S",
+        "CS1231S",
+        "MA1101R",
+        "MA1521",
+        "GER1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      [
+        "CS2030",
+        "CS2040S",
+        "CS2100",
+        "IS1103",
+        "GEQ1000",
+        "empty",
+        "empty",
+        "empty",
+      ],
+      ["CS2103T", "CS2101", "CS2105", "CS2106", "ST2334", "GES1000"],
+      ["CS3230", "ES2660", "CS3226", "GET1021", "GEH1010"],
+      ["CS3203", "CS3219", "CS4211", "CS4239"],
+      ["CS4218", "PC1221", "UE", "UE"],
+      ["TR3202", "empty", "empty", "empty", "empty", "empty", "empty", "empty"],
+      ["CS5272", "UE", "UE", "UE", "UE", "empty", "empty", "empty"],
     ],
   };
   return arr;
 };
-
-// function SecurityS1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function SecurityS2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function SecurityS3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2106", "GESXXXX", "CS2107"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function SecurityS4(item) {
-//   let sem4 = ["CS3230", "ES2660", "CS3235", "ST2334", "GETXXXX", "GEHXXXX"];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function SecurityS5(item) {
-//   let sem5 = ["CS3203", "Math and Sci", "UE", "CS4236", "CS4239"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function SecurityS6(item) {
-//   let sem6 = ["CS4238", "Math and Sci", "UE", "UE"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function SecurityS7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function SecurityS8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-
-// function DBS1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function DBS2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function DBS3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2102", "GESXXXX"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function DBS4(item) {
-//   let sem4 = ["CS3230", "ES2660", "CS3223", "CS2106", "GETXXXX", "GEHXXXX"];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function DBS5(item) {
-//   let sem5 = ["CS3203", "Math and Sci", "CS4224", "UE"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function DBS6(item) {
-//   let sem6 = ["Math and Sci", "UE", "UE", "CS4221", "CS4225"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function DBS7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function DBS8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-
-// function GraphicsS1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function GraphicsS2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function GraphicsS3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2106", "CS3241", "GESXXXX"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function GraphicsS4(item) {
-//   let sem4 = ["CS3230", "ES2660", "CS3247", "ST2334", "GETXXXX", "GEHXXXX"];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function GraphicsS5(item) {
-//   let sem5 = ["CS3203", "CS4350", "Math and Sci", "UE"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function GraphicsS6(item) {
-//   let sem6 = ["CS4347", "CS32472", "Math and Sci", "UE", "UE"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function GraphicsS7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function GraphicsS8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-// function LanguagesS1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function LanguagesS2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function LanguagesS3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2106", "CS2104", "GESXXXX"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function LanguagesS4(item) {
-//   let sem4 = ["CS3230", "ES2660", "CS3211", "ST2334", "GETXXXX", "GEHXXXX"];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function LanguagesS5(item) {
-//   let sem5 = ["CS3203", "CS4212", "Math and Sci", "UE"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function LanguagesS6(item) {
-//   let sem6 = ["CS4215", "Math and Sci", "UE", "UE"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function LanguagesS7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function LanguagesS8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-
-// function MediaS1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function MediaS2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function MediaS3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2106", "GESXXXX"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function MediaS4(item) {
-//   let sem4 = [
-//     "CS3230",
-//     "ES2660",
-//     "CS3245",
-//     "ST2334",
-//     "CS2108",
-//     "GETXXXX",
-//     "GEHXXXX",
-//   ];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function MediaS5(item) {
-//   let sem5 = ["CS3203", "CS4248", "Math and Sci", "UE"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function MediaS6(item) {
-//   let sem6 = ["CS4242", "CS4347", "Math and Sci", "UE", "UE"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function MediaS7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function MediaS8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-
-// function NetworkS1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function NetworkS2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function NetworkS3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2106", "GESXXXX"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function NetworkS4(item) {
-//   let sem4 = ["CS3230", "ES2660", "CS3236", "ST2334", "GETXXXX", "GEHXXXX"];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function NetworkS5(item) {
-//   let sem5 = ["CS3203", "CS3103", "CS4226", "Math and Sci", "UE"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function NetworkS6(item) {
-//   let sem6 = ["CS4231", "CS4222", "Math and Sci", "UE", "UE"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function NetworkS7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function NetworkS8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-
-// function ParallelS1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function ParallelS2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function ParallelS3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2106", "CS3210", "GESXXXX"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function ParallelS4(item) {
-//   let sem4 = ["CS3230", "ES2660", "CS3211", "ST2334", "GETXXXX", "GEHXXXX"];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function ParallelS5(item) {
-//   let sem5 = ["CS3203", "CS4223", "Math and Sci", "UE"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function ParallelS6(item) {
-//   let sem6 = ["CS4231", "Math and Sci", "UE", "UE"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function ParallelS7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function ParallelS8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-
-// function SES1(item) {
-//   let sem1 = ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"];
-//   return sem1.includes(item.moduleCode);
-// }
-
-// function SES2(item) {
-//   let sem2 = ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"];
-//   return sem2.includes(item.moduleCode);
-// }
-
-// function SES3(item) {
-//   let sem3 = ["CS2103T", "CS2101", "CS2105", "CS2106", "GESXXXX"];
-//   return sem3.includes(item.moduleCode);
-// }
-
-// function SES4(item) {
-//   let sem4 = ["CS3230", "ES2660", "CS3236", "ST2334", "GETXXXX", "GEHXXXX"];
-//   return sem4.includes(item.moduleCode);
-// }
-
-// function SES5(item) {
-//   let sem5 = ["CS3203", "CS3219", "CS4211", "CS4239", "Math and Sci", "UE"];
-//   return sem5.includes(item.moduleCode);
-// }
-
-// function SES6(item) {
-//   let sem6 = ["CS4218", "Math and Sci", "UE", "UE"];
-//   return sem6.includes(item.moduleCode);
-// }
-
-// function SES7(item) {
-//   let sem7 = ["ATAP"];
-//   return sem7.includes(item.moduleCode);
-// }
-
-// function SES8(item) {
-//   let sem8 = ["Focus Area", "UE", "UE", "UE", "UE"];
-//   return sem8.includes(item.moduleCode);
-// }
-
-// export default {
-//   AIS1,
-//   AIS2,
-//   AIS3,
-//   AIS4,
-//   AIS5,
-//   AIS6,
-//   AIS7,
-//   AIS8,
-//   SecurityS1,
-//   SecurityS2,
-//   SecurityS3,
-//   SecurityS4,
-//   SecurityS5,
-//   SecurityS6,
-//   SecurityS7,
-//   SecurityS8,
-//   DBS1,
-//   DBS2,
-//   DBS3,
-//   DBS4,
-//   DBS5,
-//   DBS6,
-//   DBS7,
-//   DBS8,
-//   GraphicsS1,
-//   GraphicsS2,
-//   GraphicsS3,
-//   GraphicsS4,
-//   GraphicsS5,
-//   GraphicsS6,
-//   GraphicsS7,
-//   GraphicsS8,
-//   LanguagesS1,
-//   LanguagesS2,
-//   LanguagesS3,
-//   LanguagesS4,
-//   LanguagesS5,
-//   LanguagesS6,
-//   LanguagesS7,
-//   LanguagesS8,
-//   MediaS1,
-//   MediaS2,
-//   MediaS3,
-//   MediaS4,
-//   MediaS5,
-//   MediaS6,
-//   MediaS7,
-//   MediaS8,
-//   NetworkS1,
-//   NetworkS2,
-//   NetworkS3,
-//   NetworkS4,
-//   NetworkS5,
-//   NetworkS6,
-//   NetworkS7,
-//   NetworkS8,
-//   ParallelS1,
-//   ParallelS2,
-//   ParallelS3,
-//   ParallelS4,
-//   ParallelS5,
-//   ParallelS6,
-//   ParallelS7,
-//   ParallelS8,
-//   SES1,
-//   SES2,
-//   SES3,
-//   SES4,
-//   SES5,
-//   SES6,
-//   SES7,
-//   SES8,
-// };
