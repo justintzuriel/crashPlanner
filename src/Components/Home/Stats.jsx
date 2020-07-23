@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import SaveButton from "./SaveButton";
-
+import GraduationCheck from "./GraduationCheck";
 const StatsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -49,13 +49,14 @@ class Stats extends Component {
           <Number>{this.props.noMcs}</Number>
         </MCWrapper>
         <Instructions>
-          Features to finish:
+          <GraduationCheck calendarData={this.props.saveData} />
+          {/* Features to finish:
           <List>
             <li>Fetch saved user planner data</li>
             <li>Focus area calendar templates</li>
             <li>Graduation checklist</li>
             <li>Fetch/filter optimization</li>
-          </List>
+          </List> */}
         </Instructions>
         <Instructions>
           How to use:

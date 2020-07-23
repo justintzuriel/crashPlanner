@@ -30,8 +30,6 @@ const initCell = (col, row, selected) => {
     let area = template[selected];
     let modCol = area[col];
     mod = { moduleCode: modCol[row] };
-    // if (mod.moduleCode != "empty" && mod != undefined)
-    //   modData = this.fetchModData(mod.moduleCode);
   }
   return {
     id: col + "" + row,
@@ -69,17 +67,17 @@ const allFields = allFieldsInit();
 const template = templateInit();
 class Container extends Component {
   state = {
-    fetchedModules: [],
-    cellData: cellDataInit(),
+    fetchedModules: [], // list of fetched modules from NUSMods
+    cellData: cellDataInit(), // the data inside the timetable
     modBankList: [],
     initBankList: [],
-    selectedField: {},
-    selectedMod: null,
+    selectedField: {}, // selected field (module bank)
+    selectedMod: null, // for inserting, deleting, and swapping modules
     isSelected: false,
     canAssign: false,
     canMove: false,
     toMove: {},
-    noMcs: 0,
+    noMcs: 0, // mc counter
   };
 
   // static contextType = AuthContext;
@@ -254,17 +252,17 @@ class Container extends Component {
   };
 
   handleSamplePlan = (event) => {
+    // reset the no of MCs and the content of the cellData
     this.setState({ noMcs: 0 });
     const selected = event.target.value;
     var newCellData = cellDataInit(selected);
     for (let col = 0; col < 8; col++) {
       for (let row = 0; row < 8; row++) {
-        let moduleCode = newCellData[col][row].mod.mod.moduleCode; //lol okay dalem juga
-        // console.log(newCellData, newCellData[col][row], moduleCode);
+        let moduleCode = newCellData[col][row].mod.mod.moduleCode;
+        // replace the "mod" (currently filled with moduleCode only) with data from NUSMods
         let newMod = this.state.fetchedModules.find(
           (item) => item.moduleCode === moduleCode
         );
-        console.log(newMod);
         newCellData[col][row] = {
           ...newCellData[col][row],
           mod: newMod !== undefined ? newMod : {},
@@ -272,8 +270,8 @@ class Container extends Component {
         };
       }
     }
-    console.log(newCellData);
     this.setState({ cellData: newCellData });
+    console.log(this.state.cellData);
   };
 
   test = () => {};

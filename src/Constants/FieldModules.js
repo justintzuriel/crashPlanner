@@ -1,7 +1,7 @@
 export const foundation = [
   "CS1101S",
   "CS1231S",
-  "cs2030",
+  "CS2030",
   "CS2040S",
   "CS2100",
   "CS2103T",
@@ -11,8 +11,33 @@ export const foundation = [
 
 export const ITProfessionalism = ["IS1103", "CS2101", "ES2660"];
 
-export const mathAndScience = ["MA1521", "MA1101R", "ST2334"];
-
+export const math = ["MA1521", "MA1101R", "ST2334"];
+export const science = [
+  "CM1121",
+  "CM1131",
+  "CM1417",
+  "LSM1102",
+  "LSM1105",
+  "LSM1106",
+  "LSM1301",
+  "LSM1306",
+  "PC1141",
+  "PC1142",
+  "PC1143",
+  "PC1144",
+  "PC1221",
+  "PC1222",
+  "PC1432",
+  "CM1111",
+  "CM1191",
+  "CM1401",
+  "CM1402",
+  "CM1501",
+  "LSM1303",
+  "PC1421",
+  "PC1431",
+  "PC1433",
+];
 export const teamProject = ["CS3203", "CS3216", "CS3217", "CS3281", "CS3282"];
 
 export const algo = [
