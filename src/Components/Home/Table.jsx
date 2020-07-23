@@ -62,6 +62,7 @@ class Table extends Component {
   render() {
     return (
       <Container>
+        {/* change selector to be something like in the module bank */}
         <Selector
           className="custom-select"
           onChange={this.props.handleSamplePlan}

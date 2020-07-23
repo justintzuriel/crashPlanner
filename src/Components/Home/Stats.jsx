@@ -73,7 +73,7 @@ class Stats extends Component {
             </li>
           </List>
         </Instructions>
-        <SaveButton data={this.props.saveData} />
+        <SaveButton data={this.props.saveData} focusArea={this.props.focusArea}/>
       </StatsWrapper>
     );
   }

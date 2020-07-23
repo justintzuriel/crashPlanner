@@ -7,8 +7,7 @@ import * as FieldModules from "../../Constants/FieldModules";
 // UE -> count the number of MCs ( >= 160)
 // foundation, ITProfessionalism, Math -> for each element, .includes(modules)
 
-// science -> starts with 'CN', 'DSA', 'FST', 'LSM', 'MA', 'PR', 'PHS', 'PC', 'QF', 'ST'
-// actually science -> check list
+// science -> check list
 
 // breath and depth -> 28 mcs of CS/CP/IFS
 // complete at least 1 focus area -> how to check / differentiate with UEs?
@@ -29,6 +28,18 @@ const modsOnCalendarInit = (data) => {
     for (let row = 0; row < 8; row++) {
       if (Object.keys(data[col][row].mod).length !== 0) {
         arr.push(data[col][row].mod);
+      }
+    }
+  }
+  return arr;
+};
+
+const modDataInit = (data) => {
+  const arr = [];
+  for (let col = 0; col < 8; col++) {
+    for (let row = 0; row < 8; row++) {
+      if (Object.keys(data[col][row].modData).length !== 0) {
+        arr.push(data[col][row].modData);
       }
     }
   }
@@ -125,7 +136,7 @@ class GraduationCheck extends Component {
     let moduleState = this.state.modsOnCalendar;
     let slicedMods = [];
     for (let i = 0; i < moduleState.length; i++) {
-      let str = moduleState[i].moduleCode; // moduleState is an array of objects not an array of strings!!!!
+      let str = moduleState[i].moduleCode; 
       slicedMods.push(str.slice(0, 3));
     }
     let GEModuleList = [];
@@ -150,9 +161,7 @@ class GraduationCheck extends Component {
 
   checkUE = () => {
     let moduleState = this.state.modsOnCalendar;
-    let modData = this.props.calendarData.forEach((element) =>
-      element.map((mod) => mod.modData)
-    );
+    let modData = modDataInit(this.props.calendarData);
     let counter = 0;
     console.log(modData);
     moduleState.forEach((element) => {
@@ -171,6 +180,7 @@ class GraduationCheck extends Component {
     });
   };
   checkBreathAndDepth = () => {
+    // focus area = this.props.focusArea
     let focusArea = {
       primary: false,
       electives: false,

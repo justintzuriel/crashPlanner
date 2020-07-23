@@ -71,7 +71,8 @@ class Container extends Component {
     cellData: cellDataInit(), // the data inside the timetable
     modBankList: [],
     initBankList: [],
-    selectedField: {}, // selected field (module bank)
+    selectedField: {}, // selected field (module bank), contains id, name, filter
+    focusArea: null,  // selected field (focus area + sample plan) 
     selectedMod: null, // for inserting, deleting, and swapping modules
     isSelected: false,
     canAssign: false,
@@ -270,7 +271,7 @@ class Container extends Component {
         };
       }
     }
-    this.setState({ cellData: newCellData });
+    this.setState({ cellData: newCellData , focusArea: selected});
     console.log(this.state.cellData);
   };
 
@@ -291,7 +292,7 @@ class Container extends Component {
           handleDelete={this.handleDelete}
           handleSamplePlan={this.handleSamplePlan}
         />
-        <Stats noMcs={this.state.noMcs} saveData={this.state.cellData} />
+        <Stats noMcs={this.state.noMcs} saveData={this.state.cellData} focusArea={this.state.focusArea}/>
       </Wrapper>
     );
   }
