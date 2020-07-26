@@ -72,7 +72,7 @@ class Container extends Component {
     modBankList: [],
     initBankList: [],
     selectedField: {}, // selected field (module bank), contains id, name, filter
-    focusArea: null,  // selected field (focus area + sample plan) 
+    focusArea: null, // selected field (focus area + sample plan)
     selectedMod: null, // for inserting, deleting, and swapping modules
     isSelected: false,
     canAssign: false,
@@ -230,7 +230,6 @@ class Container extends Component {
         canMove: false,
       });
     }
-    console.log(this.state.cellData);
   };
 
   handleDelete = (data) => {
@@ -271,11 +270,10 @@ class Container extends Component {
         };
       }
     }
-    this.setState({ cellData: newCellData , focusArea: selected});
-    console.log(this.state.cellData);
+    this.setState({ cellData: newCellData, focusArea: selected });
+    // console.log(this.state.cellData);
   };
 
-  test = () => {};
   render() {
     return (
       <Wrapper>
@@ -292,7 +290,11 @@ class Container extends Component {
           handleDelete={this.handleDelete}
           handleSamplePlan={this.handleSamplePlan}
         />
-        <Stats noMcs={this.state.noMcs} saveData={this.state.cellData} focusArea={this.state.focusArea}/>
+        <Stats
+          noMcs={this.state.noMcs}
+          saveData={this.state.cellData}
+          focusArea={this.state.focusArea}
+        />
       </Wrapper>
     );
   }

@@ -1,7 +1,7 @@
 export const templateInit = () => {
   const arr = {
     // empty: [[], [], [], [], [], [], [], []],
-    Algo: [
+    algo: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "GES1000"],
@@ -11,7 +11,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5330", "UE", "UE", "UE", "UE"],
     ],
-    AI: [
+    ai: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "GES1000"],
@@ -21,7 +21,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5339", "UE", "UE", "UE", "UE"],
     ],
-    Security: [
+    security: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "CS2107", "GES1000"],
@@ -31,7 +31,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5331", "UE", "UE", "UE", "UE"],
     ],
-    DB: [
+    db: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2102", "GES1000"],
@@ -41,7 +41,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5322", "UE", "UE", "UE", "UE"],
     ],
-    Graphics: [
+    graphics: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "CS3241", "GES1000"],
@@ -51,7 +51,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5346", "UE", "UE", "UE", "UE"],
     ],
-    Languages: [
+    languages: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "CS2104", "GES1000"],
@@ -61,7 +61,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5218", "UE", "UE", "UE", "UE"],
     ],
-    Media: [
+    media: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "GES1000"],
@@ -71,7 +71,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["KE5202", "UE", "UE", "UE", "UE"], // KE5205 should be CS5246 Text Mining, but is not available on NUSMods
     ],
-    Network: [
+    network: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "GES1000"],
@@ -81,7 +81,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5229", "UE", "UE", "UE", "UE"],
     ],
-    Parallel: [
+    parallel: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "CS3210", "GES1000"],
@@ -91,7 +91,7 @@ export const templateInit = () => {
       ["TR3202"],
       ["CS5250", "UE", "UE", "UE", "UE"],
     ],
-    SE: [
+    se: [
       ["CS1101S", "CS1231S", "MA1101R", "MA1521", "GER1000"],
       ["CS2030", "CS2040S", "CS2100", "IS1103", "GEQ1000"],
       ["CS2103T", "CS2101", "CS2105", "CS2106", "ST2334", "GES1000"],

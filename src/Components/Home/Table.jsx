@@ -51,7 +51,7 @@ class Table extends Component {
     super(props);
     this.state = {
       modules: [],
-      focusArea: "Algo",
+      focusArea: "empty",
     };
   }
 
@@ -67,16 +67,17 @@ class Table extends Component {
           className="custom-select"
           onChange={this.props.handleSamplePlan}
         >
-          <option value="Algo"> Algorithms and Theory</option>
-          <option value="AI">Artificial Intelligence</option>
-          <option value="Graphics">Computer Graphics and Games</option>
-          <option value="Security">Computer Security</option>
-          <option value="DB">Database Systems</option>
-          <option value="Media">Multimedia Information Retrieval</option>
-          <option value="Network">Networking and Distributed Systems</option>
-          <option value="Parallel">Parallel Computing</option>
-          <option value="Languages">Programming Languages</option>
-          <option value="SE">Software Engineering</option>
+          <option value="empty">Please select your focus area</option>
+          <option value="algo"> Algorithms and Theory</option>
+          <option value="aI">Artificial Intelligence</option>
+          <option value="graphics">Computer Graphics and Games</option>
+          <option value="security">Computer Security</option>
+          <option value="db">Database Systems</option>
+          <option value="media">Multimedia Information Retrieval</option>
+          <option value="network">Networking and Distributed Systems</option>
+          <option value="parallel">Parallel Computing</option>
+          <option value="languages">Programming Languages</option>
+          <option value="se">Software Engineering</option>
         </Selector>
         <TableWrapper>
           {this.props.cellData.map((col) => (

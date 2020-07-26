@@ -49,7 +49,11 @@ class Stats extends Component {
           <Number>{this.props.noMcs}</Number>
         </MCWrapper>
         <Instructions>
-          <GraduationCheck calendarData={this.props.saveData} />
+          <GraduationCheck
+            calendarData={this.props.saveData}
+            focusArea={this.props.focusArea}
+            noMcs={this.props.noMcs}
+          />
           {/* Features to finish:
           <List>
             <li>Fetch saved user planner data</li>
@@ -73,7 +77,7 @@ class Stats extends Component {
             </li>
           </List>
         </Instructions>
-        <SaveButton data={this.props.saveData} focusArea={this.props.focusArea}/>
+        <SaveButton data={this.props.saveData} />
       </StatsWrapper>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import * as FieldModules from "../../Constants/FieldModules";
 
 // data from props -> list of modules in the timetable and noMcs
@@ -21,36 +22,40 @@ import * as FieldModules from "../../Constants/FieldModules";
 // CS3281 AND 3282
 
 // 12 MC internship
+const Instructions = styled.div`
+  text-align: left;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: normal;
+`;
+
+const List = styled.ul`
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: normal;
+`;
 
 const modsOnCalendarInit = (data) => {
   const arr = [];
   for (let col = 0; col < 8; col++) {
     for (let row = 0; row < 8; row++) {
       if (Object.keys(data[col][row].mod).length !== 0) {
-        arr.push(data[col][row].mod);
+        let modData = data[col][row].mod;
+        data[col][row].modData.then((mod) => {
+          modData = { ...modData, moduleCredit: mod.moduleCredit };
+          arr.push(modData);
+        });
       }
     }
   }
   return arr;
 };
-
-const modDataInit = (data) => {
-  const arr = [];
-  for (let col = 0; col < 8; col++) {
-    for (let row = 0; row < 8; row++) {
-      if (Object.keys(data[col][row].modData).length !== 0) {
-        arr.push(data[col][row].modData);
-      }
-    }
-  }
-  return arr;
-};
-
 class GraduationCheck extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modsOnCalendar: modsOnCalendarInit(this.props.calendarData),
+      immutableData: [],
+      modsOnCalendar: [],
       UE: {
         modules: [],
         noMcs: 0,
@@ -60,7 +65,16 @@ class GraduationCheck extends Component {
         modules: [],
         isCompleted: false,
       },
-      breadthAndDepth: false,
+      breadthAndDepth: {
+        primaries3: [],
+        primaries4: [],
+        electives3: [],
+        electives4: [],
+        independentProject: [],
+        teamProject: [],
+        noMcs: 0,
+        isComleted: false,
+      },
       foundation: {
         modules: [],
         isCompleted: false,
@@ -86,10 +100,8 @@ class GraduationCheck extends Component {
     let moduleState = this.state.modsOnCalendar;
     for (let i = 0; i < sections.length; i++) {
       let currentSection = FieldModules[sections[i]];
-      console.log("current section:", currentSection);
       let sectionModuleList = [];
       currentSection.forEach((element) => {
-        console.log("each element:", element);
         const index = moduleState.map((mod) => mod.moduleCode).indexOf(element);
         if (index > -1) {
           sectionModuleList.push(moduleState[index]);
@@ -104,7 +116,7 @@ class GraduationCheck extends Component {
       });
     }
     this.setState({ modsOnCalendar: moduleState }, () =>
-      console.log("[check] end of checkFITM: ", this.state)
+      console.log("State after finished executing all the checks:", this.state)
     );
   };
 
@@ -136,7 +148,7 @@ class GraduationCheck extends Component {
     let moduleState = this.state.modsOnCalendar;
     let slicedMods = [];
     for (let i = 0; i < moduleState.length; i++) {
-      let str = moduleState[i].moduleCode; 
+      let str = moduleState[i].moduleCode;
       slicedMods.push(str.slice(0, 3));
     }
     let GEModuleList = [];
@@ -160,15 +172,13 @@ class GraduationCheck extends Component {
   };
 
   checkUE = () => {
-    let moduleState = this.state.modsOnCalendar;
-    let modData = modDataInit(this.props.calendarData);
+    let moduleState = this.state.modsOnCalendar; // modules which are not counted as foundation, math, science, etc (all sliced by the other functions)
     let counter = 0;
-    console.log(modData);
     moduleState.forEach((element) => {
-      let index = modData
+      const index = moduleState
         .map((mod) => mod.moduleCode)
         .indexOf(element.moduleCode);
-      counter += modData[index].moduleCredit;
+      if (index > -1) counter += Number(moduleState[index].moduleCredit);
     });
     const complete = counter >= 32 ? true : false;
     this.setState({
@@ -179,47 +189,156 @@ class GraduationCheck extends Component {
       },
     });
   };
+
   checkBreathAndDepth = () => {
-    // focus area = this.props.focusArea
-    let focusArea = {
-      primary: false,
-      electives: false,
+    // focus area
+    const focusArea = this.props.focusArea;
+    let moduleState = this.state.modsOnCalendar;
+    let mcCounter = 0;
+
+    const specsModules = FieldModules[focusArea + "Specs"];
+    let focusAreaMods = {
+      primaries3: [],
+      primaries4: [],
+      electives3: [],
+      electives4: [],
     };
 
+    let sections = ["primaries3", "primaries4", "electives3", "electives4"];
+    sections.forEach((item) => {
+      specsModules[item].forEach((faMod) => {
+        const index = moduleState.map((mod) => mod.moduleCode).indexOf(faMod);
+        if (index > -1) {
+          focusAreaMods[item].push(moduleState[index]);
+          mcCounter += Number(moduleState[index].moduleCredit);
+          moduleState.splice(index, 1);
+        }
+      });
+    });
+
+    const completedFocusArea =
+      focusAreaMods.primaries3.length + focusAreaMods.primaries4.length >= 3 &&
+      focusAreaMods.primaries4.length >= 1;
+
+    //independent project
+    let independentProjectModules = [];
+    let independentMc = 0;
+    FieldModules.independentProject.forEach((element) => {
+      const index = this.state.modsOnCalendar
+        .map((mod) => mod.moduleCode)
+        .indexOf(element);
+      if (index > -1) {
+        if (
+          Number(independentMc) + Number(moduleState[index].moduleCredit) <=
+          12
+        ) {
+          independentProjectModules.push(moduleState[index]);
+          independentMc += Number(moduleState[index].moduleCredit);
+          mcCounter += Number(moduleState[index].moduleCredit);
+        }
+      }
+    });
+
+    //team project
     // left to right: CS3203, CS3216, CS3217, CS3281, CS3282
     let teamProject = [false, false, false, false, false];
+    let teamProjectModules = [];
     let i = 0;
     FieldModules.teamProject.forEach((element) => {
-      teamProject[i] =
-        teamProject[i] || this.state.modsOnCalendar.includes(element);
+      const index = this.state.modsOnCalendar
+        .map((mod) => mod.moduleCode)
+        .indexOf(element);
+      if (index > -1) {
+        teamProject[i] = true;
+        teamProjectModules.push(moduleState[index]);
+        mcCounter += Number(moduleState[index].moduleCredit);
+        moduleState.splice(index, 1);
+      }
       i++;
+    });
+    const completedTeamProject =
+      teamProject[0] ||
+      (teamProject[1] && teamProject[2]) ||
+      (teamProject[3] && teamProject[4]);
+
+    const completedBreadthAndDepth =
+      completedTeamProject && completedFocusArea && mcCounter >= 28;
+
+    // final update
+    this.setState({
+      modsOnCalendar: moduleState,
+      breadthAndDepth: {
+        independentProject: independentProjectModules,
+        teamProject: teamProjectModules,
+        primaries3: focusAreaMods.primaries3,
+        primaries4: focusAreaMods.primaries4,
+        electives3: focusAreaMods.electives3,
+        electives4: focusAreaMods.electives4,
+        noMcs: mcCounter,
+        isComleted: completedBreadthAndDepth,
+      },
     });
   };
 
   handleClick = () => {
-    const data = modsOnCalendarInit(this.props.calendarData);
-    this.setState(
-      {
-        modsOnCalendar: data,
-      },
-      () => {
-        this.checkF_IT_M();
-        this.checkScience();
-        this.checkULR();
-        this.checkUE();
-        console.log(
-          "State after finished executing all the checks:",
-          this.state
-        );
-      }
-    );
+    if (this.props.focusArea === null || this.props.focusArea === "empty") {
+      alert("Please select your focus area!");
+      return;
+    }
+    const data = this.state.immutableData;
+    this.setState({ modsOnCalendar: data }, () => {
+      this.checkF_IT_M();
+      this.checkScience();
+      this.checkULR();
+      this.checkBreathAndDepth();
+      this.checkUE();
+    });
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.noMcs !== prevProps.noMcs) {
+      const data = modsOnCalendarInit(this.props.calendarData);
+      this.setState({
+        immutableData: data,
+      });
+    }
+  }
+
   render() {
+    const completed =
+      this.state.UE.isCompleted &&
+      this.state.math.isCompleted &&
+      this.state.science.isCompleted &&
+      this.state.ITProfessionalism.isCompleted &&
+      this.state.foundation.isCompleted &&
+      this.state.ULR.isCompleted &&
+      this.state.breadthAndDepth.isComleted;
     return (
       <>
         <div>Graduation Requirement Check</div>
-        <button onClick={this.handleClick}>test</button>
+        <div>
+          {completed && "You've completed all the requirements!"}
+          {!completed && (
+            <Instructions>
+              <div></div>
+              You have not completed the following areas:
+              <List>
+                {!this.state.UE.isCompleted && <li>"UE"</li>}
+                {!this.state.math.isCompleted && <li>"Math"</li>}
+                {!this.state.science.isCompleted && <li>"Science"</li>}
+                {!this.state.ITProfessionalism.isCompleted && (
+                  <li>"IT Professionalism"</li>
+                )}
+                {!this.state.foundation.isCompleted && <li>"Foundation"</li>}
+                {!this.state.ULR.isCompleted && <li>"ULR"</li>}
+                {!this.state.breadthAndDepth.isComleted && (
+                  <li>"Focus Area"</li>
+                )}
+              </List>
+            </Instructions>
+          )}
+        </div>
+        <button onClick={this.handleClick}>Check your modules</button>
       </>
     );
   }
