@@ -7,8 +7,8 @@ import Stats from "./Stats";
 import { allFieldsInit } from "../../Constants/AllFieldsInit";
 import { templateInit } from "../../Constants/SamplePlan";
 
-// import * as firebase from "firebase/app";
-// import app from "../../FirebaseConfig";
+import * as firebase from "firebase/app";
+import app from "../../FirebaseConfig";
 // import { AuthContext } from "../../Auth";
 
 const Wrapper = styled.div`
@@ -55,14 +55,6 @@ const cellDataInit = (selected) => {
   return arr;
 };
 
-// const fetchDatabase = () => {
-//   var user = firebase.auth().currentUser;
-//   app
-//     .database()
-//     .ref("/user" + user.displayName)
-//     .on("value");
-// };
-
 const allFields = allFieldsInit();
 const template = templateInit();
 class Container extends Component {
@@ -79,12 +71,14 @@ class Container extends Component {
     canMove: false,
     toMove: {},
     noMcs: 0, // mc counter
+    dummy: [],
   };
 
-  // static contextType = AuthContext;
+  // componentWillMount() {
+  //   this.fetchDatabase();
+  // }
 
   componentDidMount() {
-    // const currentUser = this.context;
     axios
       .get("https://api.nusmods.com/v2/2019-2020/moduleList.json")
       .then((result) => {
@@ -96,6 +90,20 @@ class Container extends Component {
       })
       .catch((err) => console.log(err));
   }
+
+  // fetchDatabase = () => {
+  //   var user = firebase.auth().currentUser;
+  //   const userName = user.email.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "_");
+  //   app
+  //     .database()
+  //     .ref("/user" + userName)
+  //     .once("value")
+  //     .then((snapshot) =>
+  //       this.setState({ cellData: snapshot.val().props }, () =>
+  //         console.log(this.state.cellData)
+  //       )
+  //     );
+  // };
 
   fetchModData = (moduleCode) => {
     return axios
@@ -271,7 +279,7 @@ class Container extends Component {
       }
     }
     this.setState({ cellData: newCellData, focusArea: selected });
-    // console.log(this.state.cellData);
+    console.log(this.state.cellData);
   };
 
   render() {

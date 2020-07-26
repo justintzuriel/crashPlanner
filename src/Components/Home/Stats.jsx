@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import SaveButton from "./SaveButton";
+import SaveData from "./SaveData";
 import GraduationCheck from "./GraduationCheck";
 const StatsWrapper = styled.div`
   display: flex;
@@ -18,29 +18,34 @@ const MCWrapper = styled.div``;
 const StyledSpan = styled.p`
   font-size: 20px;
   font-weight: 600;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 0px;
 `;
 
 const Number = styled.p`
-  font-size: 100px;
+  font-size: 80px;
   font-weight: 600;
 `;
 
 const Instructions = styled.p`
   text-align: left;
-  padding: 20px;
+  padding: 0px 20px 20px 20px;
   font-size: 16px;
   font-weight: 600;
 `;
 
 const List = styled.ul`
   padding-left: 20px;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: normal;
 `;
 
 class Stats extends Component {
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.saveData !== prevProps.saveData) {
+  //     SaveData(this.props.saveData);
+  //   }
+  // }
   render() {
     return (
       <StatsWrapper>
@@ -65,19 +70,15 @@ class Stats extends Component {
         <Instructions>
           How to use:
           <List>
+            <li>Select your desired focus area</li>
             <li>Select a module from the module bank or from a cell</li>
             <li>Click on a cell to place the selected module</li>
             <li>
               With no cell selected, double-click on a cell to delete its
               contents
             </li>
-            <li>
-              While logged-in, click the save button below to save your planner
-              data
-            </li>
           </List>
         </Instructions>
-        <SaveButton data={this.props.saveData} />
       </StatsWrapper>
     );
   }

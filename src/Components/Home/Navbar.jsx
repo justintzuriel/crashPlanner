@@ -3,7 +3,6 @@ import { withRouter } from "react-router-dom";
 import { AuthContext } from "../../Auth";
 import { useContext } from "react";
 import app from "../../FirebaseConfig";
-// import logo from "./logo.svg";
 
 function Navbar(props) {
   const { currentUser } = useContext(AuthContext);

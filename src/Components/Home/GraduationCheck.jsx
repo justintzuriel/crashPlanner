@@ -24,14 +24,14 @@ import * as FieldModules from "../../Constants/FieldModules";
 // 12 MC internship
 const Instructions = styled.div`
   text-align: left;
-  padding: 20px;
   font-size: 16px;
   font-weight: normal;
+  padding: 10px 0px 10px 0px;
 `;
 
 const List = styled.ul`
   padding-left: 20px;
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: normal;
 `;
 
@@ -39,6 +39,7 @@ const modsOnCalendarInit = (data) => {
   const arr = [];
   for (let col = 0; col < 8; col++) {
     for (let row = 0; row < 8; row++) {
+      // check if data[col][row].mod is an empty object
       if (Object.keys(data[col][row].mod).length !== 0) {
         let modData = data[col][row].mod;
         data[col][row].modData.then((mod) => {
@@ -293,6 +294,8 @@ class GraduationCheck extends Component {
       this.checkBreathAndDepth();
       this.checkUE();
     });
+    const update = modsOnCalendarInit(this.props.calendarData);
+    this.setState({ immutableData: update });
   };
 
   componentDidUpdate(prevProps) {
@@ -317,28 +320,29 @@ class GraduationCheck extends Component {
       <>
         <div>Graduation Requirement Check</div>
         <div>
-          {completed && "You've completed all the requirements!"}
+          {completed && (
+            <Instructions>You've completed all the requirements!</Instructions>
+          )}
           {!completed && (
             <Instructions>
-              <div></div>
               You have not completed the following areas:
               <List>
-                {!this.state.UE.isCompleted && <li>"UE"</li>}
-                {!this.state.math.isCompleted && <li>"Math"</li>}
-                {!this.state.science.isCompleted && <li>"Science"</li>}
+                {!this.state.UE.isCompleted && <li>UE</li>}
+                {!this.state.math.isCompleted && <li>Math</li>}
+                {!this.state.science.isCompleted && <li>Science</li>}
                 {!this.state.ITProfessionalism.isCompleted && (
-                  <li>"IT Professionalism"</li>
+                  <li>IT Professionalism</li>
                 )}
-                {!this.state.foundation.isCompleted && <li>"Foundation"</li>}
-                {!this.state.ULR.isCompleted && <li>"ULR"</li>}
-                {!this.state.breadthAndDepth.isComleted && (
-                  <li>"Focus Area"</li>
-                )}
+                {!this.state.foundation.isCompleted && <li>Foundation</li>}
+                {!this.state.ULR.isCompleted && <li>ULR</li>}
+                {!this.state.breadthAndDepth.isComleted && <li>Focus Area</li>}
               </List>
             </Instructions>
           )}
         </div>
-        <button onClick={this.handleClick}>Check your modules</button>
+        <button onClick={this.handleClick} class="btn btn-success">
+          Check your modules
+        </button>
       </>
     );
   }
