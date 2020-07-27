@@ -18,7 +18,7 @@ const MCWrapper = styled.div``;
 const StyledSpan = styled.p`
   font-size: 20px;
   font-weight: 600;
-  margin-top: 20px;
+  margin-top: 19.5x;
   margin-bottom: 0px;
 `;
 
@@ -29,8 +29,8 @@ const Number = styled.p`
 
 const Instructions = styled.p`
   text-align: left;
-  padding: 0px 20px 20px 20px;
-  font-size: 16px;
+  padding: 0px 20px 0px 20px;
+  font-size: 15.5px;
   font-weight: 600;
 `;
 
@@ -41,11 +41,11 @@ const List = styled.ul`
 `;
 
 class Stats extends Component {
-  // componentDidUpdate(prevProps) {
-  //   if (this.props.saveData !== prevProps.saveData) {
-  //     SaveData(this.props.saveData);
-  //   }
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.saveData !== prevProps.saveData) {
+      SaveData(this.props.saveData);
+    }
+  }
   render() {
     return (
       <StatsWrapper>
@@ -77,8 +77,13 @@ class Stats extends Component {
               With no cell selected, double-click on a cell to delete its
               contents
             </li>
+            <li>
+              Click the button to check your modules after finished adding them
+              to the calendar
+            </li>
           </List>
         </Instructions>
+        <button onClick={this.props.fetchDatabase}>Import saved data</button>
       </StatsWrapper>
     );
   }

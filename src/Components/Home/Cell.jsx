@@ -29,7 +29,9 @@ class Cell extends Component {
         onDoubleClick={() => this.props.handleDelete(this.props.data)}
       >
         {" "}
-        {this.props.data.mod.moduleCode}
+        {this.props.data.mod !== undefined
+          ? this.props.data.mod.moduleCode
+          : ""}
       </SButton>
     );
   }

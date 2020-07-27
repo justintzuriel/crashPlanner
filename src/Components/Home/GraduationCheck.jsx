@@ -24,7 +24,7 @@ import * as FieldModules from "../../Constants/FieldModules";
 // 12 MC internship
 const Instructions = styled.div`
   text-align: left;
-  font-size: 16px;
+  font-size: 15.5px;
   font-weight: normal;
   padding: 10px 0px 10px 0px;
 `;
@@ -341,7 +341,7 @@ class GraduationCheck extends Component {
           )}
         </div>
         <button onClick={this.handleClick} class="btn btn-success">
-          Check your modules
+          Check your modules!
         </button>
       </>
     );

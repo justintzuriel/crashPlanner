@@ -91,19 +91,19 @@ class Container extends Component {
       .catch((err) => console.log(err));
   }
 
-  // fetchDatabase = () => {
-  //   var user = firebase.auth().currentUser;
-  //   const userName = user.email.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "_");
-  //   app
-  //     .database()
-  //     .ref("/user" + userName)
-  //     .once("value")
-  //     .then((snapshot) =>
-  //       this.setState({ cellData: snapshot.val().props }, () =>
-  //         console.log(this.state.cellData)
-  //       )
-  //     );
-  // };
+  fetchDatabase = () => {
+    var user = firebase.auth().currentUser;
+    const userName = user.email.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g, "_");
+    app
+      .database()
+      .ref("/user" + userName)
+      .once("value")
+      .then((snapshot) =>
+        this.setState({ cellData: snapshot.val().props }, () =>
+          console.log(this.state.cellData)
+        )
+      );
+  };
 
   fetchModData = (moduleCode) => {
     return axios
@@ -302,6 +302,7 @@ class Container extends Component {
           noMcs={this.state.noMcs}
           saveData={this.state.cellData}
           focusArea={this.state.focusArea}
+          fetchDatabase={this.fetchDatabase}
         />
       </Wrapper>
     );
