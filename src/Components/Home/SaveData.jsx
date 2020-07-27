@@ -10,7 +10,11 @@ const SaveData = (props) => {
   app
     .database()
     .ref("/user" + userName)
-    .set({ props });
+    .set({
+      cellData: props.cellData,
+      focusArea: props.focusArea,
+      noMcs: props.noMcs,
+    });
 };
 
 export default SaveData;

@@ -36,8 +36,8 @@ const initCell = (col, row, selected) => {
     col: col,
     row: row,
     isSelected: false,
-    mod: selected !== "empty" ? { mod } : {},
-    modData: selected !== "empty" ? { modData } : {},
+    mod: selected !== "empty" ? { mod } : { isEmpty: true },
+    modData: selected !== "empty" ? { modData } : { isEmpty: true },
   };
 };
 
@@ -71,7 +71,6 @@ class Container extends Component {
     canMove: false,
     toMove: {},
     noMcs: 0, // mc counter
-    dummy: [],
   };
 
   // componentWillMount() {
@@ -99,8 +98,13 @@ class Container extends Component {
       .ref("/user" + userName)
       .once("value")
       .then((snapshot) =>
-        this.setState({ cellData: snapshot.val().props }, () =>
-          console.log(this.state.cellData)
+        this.setState(
+          {
+            cellData: snapshot.val().cellData,
+            focusArea: snapshot.val().focusArea,
+            noMcs: snapshot.val().noMcs,
+          },
+          () => console.log(this.state.cellData)
         )
       );
   };
@@ -181,7 +185,7 @@ class Container extends Component {
       ) {
         alert(this.state.selectedMod.moduleCode + " already in calendar!");
       } else {
-        if (Object.keys(newCellData[data.col][data.row].mod).length !== 0) {
+        if (newCellData[data.col][data.row].mod.isEmpty !== true) {
           newCellData[data.col][data.row].modData.then((res) =>
             this.setState({
               noMcs: this.state.noMcs - Number(res.moduleCredit),
@@ -241,13 +245,13 @@ class Container extends Component {
   };
 
   handleDelete = (data) => {
-    if (Object.keys(data.mod).length !== 0 && !this.state.canMove) {
+    if (data.mod.isEmpty !== true && !this.state.canMove) {
       //to avoid non-deleting cells due to moving (negative mc count)
       const newCellData = this.state.cellData.slice();
       newCellData[data.col][data.row] = {
         ...newCellData[data.col][data.row],
-        mod: {},
-        selectedModData: {},
+        mod: { isEmpty: true },
+        selectedModData: { isEmpty: true },
         isSelected: false,
       };
       data.modData.then((res) =>
@@ -273,8 +277,11 @@ class Container extends Component {
         );
         newCellData[col][row] = {
           ...newCellData[col][row],
-          mod: newMod !== undefined ? newMod : {},
-          modData: newMod !== undefined ? this.fetchModData(moduleCode) : {},
+          mod: newMod !== undefined ? newMod : { isEmpty: true },
+          modData:
+            newMod !== undefined
+              ? this.fetchModData(moduleCode)
+              : { isEmpty: true },
         };
       }
     }
@@ -300,7 +307,7 @@ class Container extends Component {
         />
         <Stats
           noMcs={this.state.noMcs}
-          saveData={this.state.cellData}
+          saveData={this.state}
           focusArea={this.state.focusArea}
           fetchDatabase={this.fetchDatabase}
         />

@@ -40,7 +40,7 @@ const modsOnCalendarInit = (data) => {
   for (let col = 0; col < 8; col++) {
     for (let row = 0; row < 8; row++) {
       // check if data[col][row].mod is an empty object
-      if (Object.keys(data[col][row].mod).length !== 0) {
+      if (data[col][row].mod.isEmpty !== true) {
         let modData = data[col][row].mod;
         data[col][row].modData.then((mod) => {
           modData = { ...modData, moduleCredit: mod.moduleCredit };
@@ -286,7 +286,10 @@ class GraduationCheck extends Component {
       alert("Please select your focus area!");
       return;
     }
-    const data = this.state.immutableData;
+    //edit
+    const data = modsOnCalendarInit(this.props.calendarData);
+    //edit
+    // const data = this.state.immutableData;
     this.setState({ modsOnCalendar: data }, () => {
       this.checkF_IT_M();
       this.checkScience();
@@ -298,15 +301,16 @@ class GraduationCheck extends Component {
     this.setState({ immutableData: update });
   };
 
-  componentDidUpdate(prevProps) {
-    if (this.props.noMcs !== prevProps.noMcs) {
-      const data = modsOnCalendarInit(this.props.calendarData);
-      this.setState({
-        immutableData: data,
-      });
-    }
-  }
-
+  //edit
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.noMcs !== prevProps.noMcs) {
+  //     const data = modsOnCalendarInit(this.props.calendarData);
+  //     this.setState({
+  //       immutableData: data,
+  //     });
+  //   }
+  // }
+  //edit
   render() {
     const completed =
       this.state.UE.isCompleted &&

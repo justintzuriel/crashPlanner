@@ -18,18 +18,18 @@ const MCWrapper = styled.div``;
 const StyledSpan = styled.p`
   font-size: 20px;
   font-weight: 600;
-  margin-top: 19.5x;
+  margin-top: 18x;
   margin-bottom: 0px;
 `;
 
 const Number = styled.p`
-  font-size: 80px;
+  font-size: 79.5px;
   font-weight: 600;
 `;
 
 const Instructions = styled.p`
   text-align: left;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 15px 0px 15px;
   font-size: 15.5px;
   font-weight: 600;
 `;
@@ -42,7 +42,10 @@ const List = styled.ul`
 
 class Stats extends Component {
   componentDidUpdate(prevProps) {
-    if (this.props.saveData !== prevProps.saveData) {
+    if (
+      this.props.saveData.cellData !== prevProps.saveData.cellData ||
+      this.props.saveData.noMcs !== prevProps.saveData.noMcs
+    ) {
       SaveData(this.props.saveData);
     }
   }
@@ -55,7 +58,7 @@ class Stats extends Component {
         </MCWrapper>
         <Instructions>
           <GraduationCheck
-            calendarData={this.props.saveData}
+            calendarData={this.props.saveData.cellData}
             focusArea={this.props.focusArea}
             noMcs={this.props.noMcs}
           />
@@ -83,7 +86,9 @@ class Stats extends Component {
             </li>
           </List>
         </Instructions>
-        <button onClick={this.props.fetchDatabase}>Import saved data</button>
+        <button onClick={this.props.fetchDatabase} className="btn btn-Success">
+          Import saved data
+        </button>
       </StatsWrapper>
     );
   }
