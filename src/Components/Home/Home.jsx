@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Fire from "../../firebase";
-import Table from "./Table";
 import Navbar from "./Navbar";
 import Container from "./Container";
 
