@@ -2,14 +2,15 @@
 <p align="center">
   <img src="https://i.ibb.co/gMLD61y/2046.jpg" />
 </p>
+
 **crashPlanner** is a four-year module planning application created using React JS for the frontend and Firebase for the backend. This application allows Computer Science Undergraduates in NUS to easily plan their modules without worrying about missing one or two modules required for graduation. Written for CP2106 - Independent Software Development Project (Orbital)
 
 ## Table of Content :clipboard:
-- [Requirements](#requirements)
-- [Getting started](#getting-started)
-- [Features](#features)
-- [Contributing](#contributing)
-- [Team](#team)
+- [Requirements](#requirements-closed_book)
+- [Getting started](#getting-started-green_book)
+- [Features](#features-star)
+- [Contributing](#contributing-hammer)
+- [Team](#team-construction_worker)
 ## Requirements :closed_book:
 - [Node.js](https://nodejs.org/)
 
