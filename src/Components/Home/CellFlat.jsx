@@ -1,40 +1,41 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 const SButton = styled.button`
+  display: block;
+  position: relative;
   width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  height: 30px;
   background: ${(props) => (props.isSelected ? "#94eb6e" : "#6aa84f")};
-  display: flex;
-  justify-content: center;
   color: ${(props) => (props.isSelected ? "black" : "white")};
   font-family: Arial, Helvetica, sans-serif;
-  align-items: center;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 20px;
+  padding-right: 20px;
   border: none;
   border-bottom: 1px solid black;
   outline: none;
   cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   :hover {
     background: #bcff9e;
     color: black;
   }
 `;
 
-class Cell extends Component {
+class CellFlat extends Component {
   render() {
     return (
       <SButton
         isSelected={this.props.data.isSelected}
-        onClick={() => this.props.handleSelect(this.props.data)}
-        onDoubleClick={() => this.props.handleDelete(this.props.data)}
+        onClick={() => this.props.handleSelect(this.props.data.moduleCode)}
       >
-        {" "}
-        {this.props.data.mod !== undefined
-          ? this.props.data.mod.moduleCode
-          : ""}
+        {this.props.data.moduleCode + " " + this.props.data.title}
       </SButton>
     );
   }
 }
 
-export default Cell;
+export default CellFlat;

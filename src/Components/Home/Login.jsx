@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import "../../Styles/LogSign.css";
-import Fire from "../../firebase";
+import Fire from "../../FirebaseConfig";
 import { withRouter } from "react-router";
-// import { AuthContext } from "../../auth";
+import logo from "./logo.svg";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -22,21 +22,13 @@ const Login = ({ history }) => {
     [history]
   );
 
-  // const { currentUser } = useContext(AuthContext);
-
-  // if (currentUser) {
-  //   return <Redirect to="/" />;
-  // }
-
   return (
     <div class="wrapper fadeInDown">
       <div id="formContent">
-        {/* <!-- Tabs Titles --> */}
-
-        {/* <!-- Icon -->
-              <div class="fadeIn first">
-                <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-              </div> */}
+        {/* <!-- Icon --> */}
+        <div class="fadeIn first">
+          <img src={logo} id="icon" alt="User Icon" />
+        </div>
 
         {/* <!-- Login Form --> */}
         <form onSubmit={handleLogin}>
